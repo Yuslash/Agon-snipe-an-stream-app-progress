@@ -1,0 +1,26 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    /* Ensures no scrollbars */
+}
+
+.parallax-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    /* Ensures video covers the entire viewport */
+    transition: transform 0.1s ease-out;
+    /* Smooth parallax movement */
+}
