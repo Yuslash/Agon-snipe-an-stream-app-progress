@@ -1,6 +1,13 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import AnimateBox from './Animations/AnimateBox.jsx'
+
 export default function App()
 {
   return <>
-    <h2>how are you good day today</h2>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/gsap" element={<AnimateBox />} /> 
+        </Routes>
+      </BrowserRouter>
   </>
 }
