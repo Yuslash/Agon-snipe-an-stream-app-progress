@@ -10,18 +10,17 @@ export default function ParallaxVideo() {
             const y = (e.clientY / window.innerHeight) * 20;
 
             if (videoRef.current) {
-                videoRef.current.style.transform = `translate(${x}px, ${y}px)`; // Move the video based on mouse position
+                videoRef.current.style.transform = `translate(${x}px, ${y}px)`; 
             }
         };
 
-        // Add event listener when the component mounts
-        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mousemove', handleMouseMove)
 
-        // Cleanup the event listener when the component unmounts
+       
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
-        };
-    }, []); // Empty dependency array ensures this runs only once
+            window.removeEventListener('mousemove', handleMouseMove)
+        }
+    }, [])
 
     return (
         <div className="video-container">
@@ -31,7 +30,7 @@ export default function ParallaxVideo() {
                 muted
                 loop
                 className="parallax-video"
-                src="ivanthandamassuh.mp4" // Replace with your video file
+                src="ivanthandamassuh.mp4" 
             />
         </div>
     );

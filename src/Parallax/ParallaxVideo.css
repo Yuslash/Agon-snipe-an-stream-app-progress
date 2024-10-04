@@ -13,14 +13,23 @@ html {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    /* Ensures no scrollbars */
+    
 }
 
 .parallax-video {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-    /* Ensures video covers the entire viewport */
     transition: transform 0.1s ease-out;
-    /* Smooth parallax movement */
+}
+
+.gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(255deg, rgba(0, 0, 0, 0) -0.51%, #000 99.65%);
+    pointer-events: none;
+    /* Ensure the overlay doesn't block mouse events */
 }
