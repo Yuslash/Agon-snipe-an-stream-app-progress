@@ -1,0 +1,16 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    /* Ensure no scrolling */
+    background-image: url('5.png');
+    /* Add your image */
+    background-size: cover;
+    /* Ensure it covers the viewport */
+    background-position: center;
+    /* Start centered */
+    transition: background-position 0.1s ease-out;
+    /* Smooth movement */
+}
