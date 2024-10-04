@@ -3,23 +3,30 @@ import GsapScaleup from './GsapScaleup'
 
 export default function ScaleUpAnimation()
 {
-    const scaleBox1 = useRef(null)
-    const scaleBox2 = useRef(null)
+    const scaleBox1 = useRef([])
+
+    const boxData = [
+        { id: 1, color: 'green', label: 'Box 1' },
+        { id: 2, color: 'blue', label: 'Box 2' },
+        { id: 3, color: 'red', label: 'Box 3' },
+        { id: 4, color: 'purple', label: 'Box 4' }, 
+    ];
 
     useEffect(() =>
     {
-        GsapScaleup(scaleBox1.current)
-        GsapScaleup(scaleBox2.current)
+        scaleBox1.current.forEach(box =>
+            {
+                GsapScaleup(box)
+            }
+        )
     }, [])
 
     return <>
         <div className=" w-full bg-orange-300 p-5 flex gap-4">
-            <div ref={scaleBox1} className=" p-2 w-40 h-40 bg-purple-500">
-                <div>how are you mate</div>
-                <div className=' w-full h-[100px] bg-orange-600'></div>
-                
-            </div>
-            <div ref={scaleBox2} className=" w-40 h-40 bg-red-500"></div>
+        {boxData.map((box, index) =>
+        (
+            <div key={box.id} style={{backgroundColor: box.color, transformOrigin: 'center'}} ref={(el) => (scaleBox1.current[index] = el)} className=" p-2 w-40 h-40"></div>
+        ))}
         </div>
     </>
 }
