@@ -5,6 +5,7 @@ export default function DarkGreen({videoRef})
 
     return <>
         <div className="video-container">
+        <div className=' top-nav'></div>
             <video
                 ref={videoRef}
                 autoPlay
