@@ -58,7 +58,22 @@ export default function DarkGreen({videoRef})
                 className="parallax-video"
                 src="ivanthandamassuh.webm" // Replace with your video file
             />
-            <div className="gradient-overlay"></div>
+            <div className="gradient-overlay">
+                <div className='flex-content w-full h-full'>
+                    <div className='flex flex-col max-w-[600] text-wrap h-auto items-start text-center px-5 relative mt-[300px] ml-[120px]'>
+                        <div className=' w-[420px]'>
+                            <p className='over mb-5 '>overwatch</p>
+                        </div>
+                        <h1 className='main-head'>The Hunt <br />Is Await</h1>
+                        <p className='kakabo relative left-[15px] text-left '>Some Description about something that is <br />
+                            not look correct so be care full</p>
+                        <div className='master w-[420px] mt-8 flex justify-center'>
+                            <img className='hover-scale' src='/Buttons/fortnite.png'></img>
+                        </div>
+                    </div>
+                </div>
+                <div className=' w-full h-full'></div>
+            </div>
         </div>
     </>
 }
