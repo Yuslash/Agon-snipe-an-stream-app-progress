@@ -1,10 +1,28 @@
 import DarkGreen from "./DarkGreen";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export default function GetStarted()
 {
+    const [ audioEnabled, setAudioEnabled ] = useState(false)
+    const [ initialAudio, setInitialAudio] = useState(null)
 
     const videoRef = useRef();
+
+    useEffect(() =>
+    {   
+        const audio = new Audio('HoverSounds/freefire.mp3')
+        audio.preload = 'auto'
+        setInitialAudio(audio)
+    }, [])
+
+    const enableAudio = () =>
+    {
+        if (initialAudio) {
+            initialAudio.loop = true
+            initialAudio.play()
+            setAudioEnabled(true)
+        }
+    }
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -26,7 +44,14 @@ export default function GetStarted()
 
     return <>
         <div className=" w-full h-full absolute top-0 left-0 p-2 ">
-            <DarkGreen videoRef={videoRef} />
+            {!audioEnabled && (
+                <div className="enable-audio text-white">
+                    <button onClick={enableAudio}>Enable Audio</button>
+                </div>
+            )}
+            {audioEnabled && (
+                <DarkGreen videoRef={videoRef} />
+            )}
         </div>
     </>
 }

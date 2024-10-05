@@ -4,6 +4,7 @@ import ScaleUpAnimation from "./Animations/ScaleUpAnimation.jsx"
 import ParallaxImage from "./Parallax/ParallaxImage.jsx"
 import ParallaxVideo from "./Parallax/ParallaxVideo.jsx"
 import GetStarted from "./App/GetStarted.jsx"
+import Expo from './Expo/Expo.jsx'
 
 export default function App()
 {
@@ -17,6 +18,7 @@ export default function App()
 
           {/* GET STARTED */}
           <Route path="/start" element={<GetStarted />} />
+          <Route path="/" element={<Expo />}/>
         </Routes>
       </BrowserRouter>
   </>
