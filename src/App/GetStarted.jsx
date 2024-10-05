@@ -45,8 +45,8 @@ export default function GetStarted()
     return <>
         <div className=" w-full h-full absolute top-0 left-0 p-2 ">
             {!audioEnabled && (
-                <div className="enable-audio text-white">
-                    <button onClick={enableAudio}>Enable Audio</button>
+                <div className="enable-audio w-full h-full absolute top-0 left-0 flex justify-center items-center text-white">
+                    <button className=" bg-green-800 p-6 rounded-full hover:rounded font-semibold text-md border border-green-700" onClick={enableAudio}>Enable Audio</button>
                 </div>
             )}
             {audioEnabled && (
