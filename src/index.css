@@ -251,6 +251,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
 }
 
 .gethover {
@@ -274,9 +275,40 @@
 
 .havean-account span {
   color: #FFF;
-    font-family: Oxanium;
-    font-size: 14px;
+    font-family: 'kakadu';
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+.frame-green:hover
+{
+  background-color: cyan;
+  box-shadow: 0px 4px 69.6px 16px #065662;
+}
+
+.frame-red:hover 
+{
+  background-color: red;
+  box-shadow: 0px 4px 69.6px 16px #620606;
+}
+.redgethover, redgetreverse {
+  cursor: pointer;
+}
+
+.redgethover:hover {
+  content: url('/Buttons/redgethoverafter.png');
+}
+
+.redgetreverse:hover 
+{
+  content: url('/Buttons/loginhoverafter.png');
+}
+.greenloginhover{
+  cursor: pointer;
+}
+
+.greenloginhover:hover {
+  content: url('/Buttons/greenloginafter.png');
 }

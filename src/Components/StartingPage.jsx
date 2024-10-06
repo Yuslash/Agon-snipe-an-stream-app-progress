@@ -1,7 +1,5 @@
 export default function StartingPage({ playAudio })
 {
-    
-
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
             <video
@@ -13,7 +11,7 @@ export default function StartingPage({ playAudio })
             />
         </div>
         <div className="gradient-over flex absolute top-0 left-0 w-full h-full ">
-            <div className="top-nav absolute top-0 left-0 w-full bg-blue-400 ">
+            <div className="top-nav z-20 absolute top-0 left-0 w-full bg-blue-400 ">
                 <img className="flex-shrink-0 w-[200px] h-auto" src="Logo.png" />
                 <div className="top-midcon">
                     <span>Home</span>
@@ -23,10 +21,7 @@ export default function StartingPage({ playAudio })
                 </div>
                 <div className="flex gap-2">
                     <img onMouseEnter={playAudio} className="gethover" src="/Buttons/gethoverbefore.png" />
-                    <button className="havean-account gap-2 hover:gap-4">
-                        <span>Login</span>
-                        <img src="/Buttons/login.png" />
-                    </button>
+                    <img onMouseEnter={playAudio} className="greenloginhover" src="/Buttons/greenlogin.png" />
                 </div>
             </div>
                 
@@ -52,7 +47,7 @@ export default function StartingPage({ playAudio })
 
                 </div>
 
-                <div className="right-row w-full h-full"></div>
+                <div className="right-row w-full h-full flex items-end py-60"></div>
         </div>
     </>
 }
