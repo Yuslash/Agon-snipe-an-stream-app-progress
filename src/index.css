@@ -202,7 +202,7 @@
 /* Fade-out effect for the button */
 .fade-out {
   opacity: 1;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 4s ease-in-out;
 }
 
 .fade-out.exiting {
@@ -212,7 +212,7 @@
 /* Fade-in effect for the StartingPage */
 .fade-in {
   opacity: 0;
-  animation: fadeIn 1s forwards;
+  animation: fadeIn 5s forwards;
 }
 
 @keyframes fadeIn {
