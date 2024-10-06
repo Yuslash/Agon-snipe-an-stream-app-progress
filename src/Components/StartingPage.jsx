@@ -1,5 +1,8 @@
-export default function StartingPage()
+import { useEffect, useState } from "react"
+
+export default function StartingPage({ playAudio })
 {
+    
 
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
@@ -23,7 +26,7 @@ export default function StartingPage()
                         <span className="kaka floating">Some Description about something that is
                         not look correct so be care full</span>
                         <div className=" flex px-20 mt-6 w-full">
-                            <img className="fortnite-button" src="/Buttons/fortnite.png"></img>
+                            <img onMouseEnter={playAudio} className="fortnite-button" src="/Buttons/fortnite.png"></img>
                         </div>
                     </div>
 
