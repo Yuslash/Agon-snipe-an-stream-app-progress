@@ -24,12 +24,16 @@ export default function Exprerience()
 
     return <div className="absolute top-0 left-0 w-full h-full bg-black text-white overflow-hidden">
         {!initialAudio && (
-            <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black text-white overflow-hidden">
-                <button onClick={enableAudio} className=" p-8 font-semibold border border-white rounded-full text-2xl hover:rounded">Enable Audio</button>
+            <div className="fade-out absolute top-0 left-0 w-full h-full flex justify-center items-center bg-black text-white overflow-hidden">
+                <button onClick={enableAudio} className=" p-8 font-semibold border border-white rounded-full text-2xl hover:rounded">Start Explore</button>
             </div>
         )}
         
-        {initialAudio && <StartingPage />}
+        {initialAudio && (
+            <div className="fade-in transition-opacity duration-1000">
+                <StartingPage />
+            </div>
+        )}
        
     </div>
 }
