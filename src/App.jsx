@@ -12,8 +12,6 @@ export default function App()
           <Route path="/scaleup" element={<ScaleUpAnimation />} />
           <Route path="/init" element={<Experience />}/>
         </Routes>
-      </BrowserRouter>
-
-      
+      </BrowserRouter>      
   </>
 }
