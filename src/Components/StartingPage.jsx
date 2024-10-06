@@ -29,18 +29,25 @@ export default function StartingPage({ playAudio })
                     </button>
                 </div>
             </div>
+                
                 <div className="left-row w-full h-full justify-center flex flex-col ">
                 
                     <div className="flex flex-col mt-20 gap-5 px-[180px] ">
+                        
+                        
                         <div className=" w-full flex px-28 ">
                             <span className="over floating">overwatch</span>
                         </div>
                         <span className="the-hunt floating">THE HUNT <br /> IS AWAIT</span>
                         <span className="kaka floating">Some Description about something that is
                         not look correct so be care full</span>
+                        
+                        
                         <div className=" flex px-20 mt-6 w-full">
                             <img onMouseEnter={playAudio} className="fortnite-button" src="/Buttons/fortnite.png"></img>
                         </div>
+                    
+                    
                     </div>
 
                 </div>
