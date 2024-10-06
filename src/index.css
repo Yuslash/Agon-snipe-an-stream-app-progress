@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: overwatch;
+  src: url('/Fonts/OVERWATCH.ttf');
+}
+
+@font-face {
+  font-family: fortnite;
+  src: url('/Fonts/fortnite');
+}
+
+@font-face {
+  font-family: kakadu;
+  src: url('/Fonts/kakadu/Kakadu-Bold.ttf');
+}
+
 .box-style
 {
   width: 100px;
@@ -10,3 +25,46 @@
 }
 
 /* From here the real Css */
+
+.gradient-over
+{
+  background: linear-gradient(255deg, rgba(0, 0, 0, 0.00) -0.51%, #000 99.65%)
+}
+
+
+.over {
+  color: #FFF;
+    font-family: 'overwatch';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.the-hunt
+{
+  color: #FFF;
+    font-family: 'fortnite';
+    font-size: 125px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.kaka
+{
+  color: #FFF;
+    font-family: 'kakadu';
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.fortnite-button {
+  cursor: pointer;
+}
+
+.fortnite-button:hover {
+  transform: scale(0.9);
+}
