@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-
 export default function StartingPage({ playAudio })
 {
     
@@ -15,7 +13,22 @@ export default function StartingPage({ playAudio })
             />
         </div>
         <div className="gradient-over flex absolute top-0 left-0 w-full h-full ">
-            <div className="top-nav absolute top-0 left-0 w-full "></div>
+            <div className="top-nav absolute top-0 left-0 w-full bg-blue-400 ">
+                <img className="flex-shrink-0 w-[200px] h-auto" src="Logo.png" />
+                <div className="top-midcon">
+                    <span>Home</span>
+                    <span>About</span>
+                    <span>Nothing</span>
+                    <span>Contact</span>
+                </div>
+                <div className="flex gap-2">
+                    <img onMouseEnter={playAudio} className="gethover" src="/Buttons/gethoverbefore.png" />
+                    <button className="havean-account gap-2 hover:gap-4">
+                        <span>Login</span>
+                        <img src="/Buttons/login.png" />
+                    </button>
+                </div>
+            </div>
                 <div className="left-row w-full h-full justify-center flex flex-col ">
                 
                     <div className="flex flex-col mt-20 gap-5 px-[180px] ">
