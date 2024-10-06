@@ -68,3 +68,133 @@
 .fortnite-button:hover {
   transform: scale(0.9);
 }
+
+@media (max-width: 1700px) {
+  .over {
+    font-size: 18px;
+  }
+
+  .the-hunt {
+    font-size: 115px;
+  }
+
+  .kaka {
+    font-size: 28px;
+  }
+
+  .fortnite-button {
+    font-size: 18px;
+    padding: 9px 18px;
+  }
+}
+
+/* Media Query for Medium to Large Screens (max-width: 1400px) */
+@media (max-width: 1400px) {
+  .over {
+    font-size: 16px;
+  }
+
+  .the-hunt {
+    font-size: 100px;
+  }
+
+  .kaka {
+    font-size: 26px;
+  }
+
+  .fortnite-button {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+}
+
+/* Media Query for Laptops and Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .over {
+    font-size: 14px;
+  }
+
+  .the-hunt {
+    font-size: 85px;
+  }
+
+  .kaka {
+    font-size: 24px;
+  }
+
+  .fortnite-button {
+    font-size: 14px;
+    padding: 7px 14px;
+  }
+}
+
+/* Media Query for Tablets and Large Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  .over {
+    font-size: 12px;
+  }
+
+  .the-hunt {
+    font-size: 70px;
+  }
+
+  .kaka {
+    font-size: 22px;
+  }
+
+  .fortnite-button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* Media Query for Smaller Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .over {
+    font-size: 10px;
+  }
+
+  .the-hunt {
+    font-size: 50px;
+  }
+
+  .kaka {
+    font-size: 20px;
+  }
+
+  .fortnite-button {
+    font-size: 10px;
+    padding: 5px 10px;
+  }
+}
+
+.floating {
+  display: inline-block;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.floating:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.floating:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.floating:nth-child(4) {
+  animation-delay: 0.6s;
+}

@@ -2,10 +2,10 @@ export default function StartingPage()
 {
 
     return <>
-        <div className="mass w-full h-full absolute top-0 left-0 bg-black object-cover bg-center bg-no-repeat overflow-hidden">
+        <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
             <video
             autoPlay 
-            className="ivanthanda"
+            className="ivanthanda object-cover w-full h-full"
             src="ivanthandamassuh.webm"
             loop
             muted   
@@ -17,10 +17,10 @@ export default function StartingPage()
                 
                     <div className="flex flex-col mt-20 gap-5 px-[180px] ">
                         <div className=" w-full flex px-28 ">
-                            <span className="over">overwatch</span>
+                            <span className="over floating">overwatch</span>
                         </div>
-                        <span className="the-hunt">THE HUNT <br /> IS AWAIT</span>
-                        <span className="kaka">Some Description about something that is
+                        <span className="the-hunt floating">THE HUNT <br /> IS AWAIT</span>
+                        <span className="kaka floating">Some Description about something that is
                         not look correct so be care full</span>
                         <div className=" flex px-20 mt-6 w-full">
                             <img className="fortnite-button" src="/Buttons/fortnite.png"></img>
