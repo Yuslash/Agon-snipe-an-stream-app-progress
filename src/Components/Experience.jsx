@@ -3,6 +3,7 @@ import StartingPage from "./StartingPage";
 import RedStartPage from "./RedStartPage";
 import BlackMythPage from "./BlackMythPage";
 import FortStartPage from "./FortStartPage";
+import SoloStartPage from "./SoloStartPage";
 
 export default function Exprerience()
 {
@@ -20,8 +21,8 @@ export default function Exprerience()
     
         const handleMouseMove = (e) =>
         {
-            const x = (e.clientX / window.innerWidth) * 20
-            const y = (e.clientY / window.innerHeight) * 20
+            const x = (e.clientX / window.innerWidth) * 10
+            const y = (e.clientY / window.innerHeight) * 10
 
             if(videoRef.current){
                 videoRef.current.style.transform = `translate(${x}px, ${y}px)`
@@ -90,7 +91,9 @@ export default function Exprerience()
             case 'black':
                 return <BlackMythPage videoRef={videoRef} playAudio={playAudio} />
             case 'fort':
-                return <FortStartPage videoRef={videoRef} playAudio={playAudio} /> 
+                return <FortStartPage videoRef={videoRef} playAudio={playAudio} />
+            case 'solo':
+                return <SoloStartPage videoRef={videoRef} playAudio={playAudio}/> 
             default:
                 return <StartingPage videoRef={videoRef} playAudio={playAudio} />
         }
@@ -126,6 +129,10 @@ export default function Exprerience()
                             
                             <button onMouseEnter={cameraAudio} onClick={() => switchPanel('black')} className="frame-black w-[180px] rounded  p-1">
                                 <img className="rounded" src="/framepage/blackmyth.png" />
+                            </button>
+
+                            <button onMouseEnter={cameraAudio} onClick={() => switchPanel('solo')} className="frame-solo w-[180px] rounded  p-1">
+                                <img className="rounded" src="/framepage/solo.png" />
                             </button>
 
                         
