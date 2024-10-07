@@ -11,6 +11,30 @@ export default function Exprerience()
     const hoverAudio = useRef(null)
     const cameraShutter = useRef(null)
 
+    const videoRef = useRef()
+
+    useEffect(() =>
+    {   
+    
+        const handleMouseMove = (e) =>
+        {
+            const x = (e.clientX / window.innerWidth) * 20
+            const y = (e.clientY / window.innerHeight) * 20
+
+            if(videoRef.current){
+                videoRef.current.style.transform = `translate(${x}px, ${y}px)`
+            }
+
+        }
+
+        window.addEventListener('mousemove', handleMouseMove)
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+        }
+
+    }, [])
+
     useEffect(() => {
 
         audio.current = new Audio('/HoverSounds/spiderman.mp3')
@@ -24,7 +48,7 @@ export default function Exprerience()
         cameraShutter.current.preload = 'auto'
 
         audio.current.loop = true
-    }, [hoverAudio])
+    }, [])
 
     const enableAudio = () =>
     {
@@ -58,11 +82,11 @@ export default function Exprerience()
     const renderPanel = () => {
         switch (activePanel) {
             case 'starting':
-                return <StartingPage playAudio={playAudio} />
+                return <StartingPage videoRef={videoRef} playAudio={playAudio} />
             case 'red':
-                return <RedStartPage playAudio={playAudio} />
+                return <RedStartPage videoRef={videoRef} playAudio={playAudio} />
             default:
-                return <StartingPage playAudio={playAudio} />
+                return <StartingPage videoRef={videoRef} playAudio={playAudio} />
         }
     }
     
@@ -81,12 +105,15 @@ export default function Exprerience()
                     <div className=" w-full "></div>
                     <div className="right-box-panel pointer-events-auto w-full z-10 flex items-end py-44">
                         <div className="page-frame w-full p-2 flex gap-2">
+                            
                             <button onMouseEnter={cameraAudio} onClick={() => switchPanel('starting')} className="frame-green w-[180px]  rounded p-1">
                                 <img className="rounded" src="/framepage/hunt.png" />
                             </button>
+                            
                             <button onMouseEnter={cameraAudio} onClick={() => switchPanel('red')} className="frame-red w-[180px] rounded  p-1">
                                 <img className="rounded" src="/framepage/redpage.png" />
                             </button>
+                        
                         </div>
                     </div>
                 </div>

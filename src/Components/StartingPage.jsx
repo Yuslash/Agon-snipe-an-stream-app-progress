@@ -1,8 +1,9 @@
-export default function StartingPage({ playAudio })
+export default function StartingPage({ playAudio, videoRef })
 {
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
             <video
+            ref={videoRef}
             autoPlay 
             className="ivanthanda object-cover w-full h-full"
             src="ivanthandamassuh.webm"
