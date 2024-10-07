@@ -4,6 +4,7 @@ import RedStartPage from "./RedStartPage";
 import BlackMythPage from "./BlackMythPage";
 import FortStartPage from "./FortStartPage";
 import SoloStartPage from "./SoloStartPage";
+import MonsterStartPage from "./MonsterStartPage";
 
 export default function Exprerience()
 {
@@ -93,7 +94,9 @@ export default function Exprerience()
             case 'fort':
                 return <FortStartPage videoRef={videoRef} playAudio={playAudio} />
             case 'solo':
-                return <SoloStartPage videoRef={videoRef} playAudio={playAudio}/> 
+                return <SoloStartPage videoRef={videoRef} playAudio={playAudio}/>
+            case 'monster':
+                return <MonsterStartPage videoRef={videoRef} playAudio={playAudio} />     
             default:
                 return <StartingPage videoRef={videoRef} playAudio={playAudio} />
         }
@@ -133,6 +136,10 @@ export default function Exprerience()
 
                             <button onMouseEnter={cameraAudio} onClick={() => switchPanel('solo')} className="frame-solo w-[180px] rounded  p-1">
                                 <img className="rounded" src="/framepage/solo.png" />
+                            </button>
+
+                            <button onMouseEnter={cameraAudio} onClick={() => switchPanel('monster')} className="frame-monster w-[180px] rounded  p-1">
+                                <img className="rounded" src="/framepage/monster.png" />
                             </button>
 
                         
