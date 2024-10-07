@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family: overwatch;
+    src: url('/Fonts/OVERWATCH.ttf');
+}
+
+@font-face {
+    font-family: fortnite;
+    src: url('/Fonts/fortnite');
+}
+
+@font-face {
+    font-family: kakadu;
+    src: url('/Fonts/kakadu/Kakadu-Bold.ttf');
+}
+
+.login-panel
+{
+    border-radius: 40px;
+    border: 1px solid #181749;
+    background: rgba(31, 29, 78, 0.35);
+    box-shadow: 0px 0px 16.8px 0px rgba(106, 83, 174, 0.25);
+    backdrop-filter: blur(25px);
+    letter-spacing: 0.025rem;
+}
+
+.welcome-text {
+    align-self: stretch;
+    margin-top: -30px;
+    color: #FFF;
+    text-align: center;
+    font-family: Oxanium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.main-buttons-hold
+{
+    background-color: #1C1B45;
+    box-shadow: -2px 2px 9.5px -2px rgba(0, 0, 0, 0.44) inset;
+}
+
+.regiser-button {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.login-button
+{
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 2px solid #6A6AA5;
+    background: #393768;
+    padding: 12px 20px;
+}
+
+.above-text {
+    align-self: stretch;
+    color: #676799;
+    font-family: 'poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.text-input {
+    border-radius: 12px;
+    background: #1C1B45;    
+    box-shadow: -2px 2px 9.5px -2px rgba(0, 0, 0, 0.44) inset;
+    color: #656597;
+    font-family: 'poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.text-input::placeholder {
+    letter-spacing: 0.045rem;
+    color: #656597;
+}
+
+.to-account {
+    border-radius: 10px;
+    border: 2px solid #6E6AB9;
+    background: rgba(58, 56, 105, 0.64);
+}
+
+.to-account:hover{
+    background: rgb(50, 49, 107);
+}
+
+.to-account span {
+    color: #FFF;
+        font-family: Oxanium;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        letter-spacing: 0.055rem;
+}
+
+.discord-button
+{
+    border-radius: 10px;
+    border: 1px solid #786CFF;
+    background: radial-gradient(85.17% 85.29% at 50.15% 14.77%, #7E73FD 0%, #5D50FF 100%);
+}
+
+.discord-button span {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
