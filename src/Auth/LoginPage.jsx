@@ -6,6 +6,7 @@ export default function LoginPage()
 {
     const navigate = useNavigate()
     const wooshRef = useRef(null)
+    const imageRef = useRef()
 
     useEffect(() => {
 
@@ -13,7 +14,25 @@ export default function LoginPage()
 
         wooshRef.current.preload = 'auto'
 
-        
+    }, [])
+
+    useEffect(() => {
+
+        const handleMouseMove = (e) => {
+            const x = (e.clientX / window.innerWidth) * 5
+            const y = (e.clientY / window.innerHeight) * 5
+
+            if (imageRef.current) {
+                imageRef.current.style.transform = `translate(${x}px, ${y}px)`
+            }
+
+        }
+
+        window.addEventListener('mousemove', handleMouseMove)
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+        }
 
     }, [])
 
@@ -27,7 +46,7 @@ export default function LoginPage()
         navigate('/init')
     }
 
-    return <div className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
+    return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
             <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
                     <div className='flex items-center gap-4'>
                     <img src='/authentication/logo.svg' />
