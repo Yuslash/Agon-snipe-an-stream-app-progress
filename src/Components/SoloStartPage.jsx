@@ -1,4 +1,15 @@
-export default function SoloStartPage({ playAudio, videoRef }) {
+import { useNavigate } from "react-router-dom"
+
+export default function SoloStartPage({ playAudio, videoRef, stopAudio }) {
+
+    const navigate = useNavigate()
+
+    const toLogin = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+        navigate('/login')
+    }
+
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
             <video
@@ -21,7 +32,7 @@ export default function SoloStartPage({ playAudio, videoRef }) {
                 </div>
                 <div className="flex items-center gap-2">
                     <img onMouseEnter={playAudio} className="solohover" src="/Buttons/solobefore.png" />
-                    <img onMouseEnter={playAudio} className="solologin" src="/Buttons/logins/solobefore.png" />
+                    <img onClick={toLogin} onMouseEnter={playAudio} className="solologin" src="/Buttons/logins/solobefore.png" />
                 </div>
             </div>
 

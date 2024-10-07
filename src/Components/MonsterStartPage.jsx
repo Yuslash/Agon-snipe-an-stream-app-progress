@@ -1,4 +1,15 @@
-export default function MonsterStartPage({ playAudio, videoRef }) {
+import { useNavigate } from "react-router-dom"
+
+export default function MonsterStartPage({ playAudio, videoRef, stopAudio }) {
+
+    const navigate = useNavigate()
+
+    const toLogin = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+        navigate('/login')
+    }
+
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
             <video
@@ -21,7 +32,7 @@ export default function MonsterStartPage({ playAudio, videoRef }) {
                 </div>
                 <div className="flex items-center gap-2">
                     <img onMouseEnter={playAudio} className="monsterhover" src="/Buttons/monsterbefore.png" />
-                    <img onMouseEnter={playAudio} className="monsterlogin" src="/Buttons/logins/monsterbefore.png" />
+                    <img onClick={toLogin} onMouseEnter={playAudio} className="monsterlogin" src="/Buttons/logins/monsterbefore.png" />
                 </div>
             </div>
 

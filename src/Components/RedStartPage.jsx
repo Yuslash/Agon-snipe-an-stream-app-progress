@@ -1,4 +1,15 @@
-export default function RedStartPage({ playAudio, videoRef }) {
+import { useNavigate } from "react-router-dom"
+
+export default function RedStartPage({ playAudio, videoRef, stopAudio }) {
+
+    const navigate = useNavigate()
+
+    const toLogin = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+        navigate('/login')
+    }
+
 
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
@@ -22,7 +33,7 @@ export default function RedStartPage({ playAudio, videoRef }) {
                 </div>
                 <div className="flex gap-2">
                     <img onMouseEnter={playAudio} className="redgethover" src="/Buttons/redgethoverbefore.png" />
-                    <img onMouseEnter={playAudio} className="redgetreverse" src="/Buttons/loginhoverbefore.png" />
+                    <img onClick={toLogin} onMouseEnter={playAudio} className="redgetreverse" src="/Buttons/loginhoverbefore.png" />
                 </div>
             </div>
 

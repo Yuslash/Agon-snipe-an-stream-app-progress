@@ -1,5 +1,29 @@
-export default function StartingPage({ playAudio, videoRef })
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import AnimationLoading from "../Animations/AnimationLoading"
+
+export default function StartingPage({ playAudio, videoRef, stopAudio })
 {
+    const navigate = useNavigate()
+    const [isLoading, setIsLoading] = useState(false)
+
+    const toLogin = () =>
+    {   
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+
+        setIsLoading(true)
+
+       const fakeLoadingTime = 3000
+
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/login')
+        }, fakeLoadingTime)
+    }
+
+    if(isLoading) { return <AnimationLoading /> }
+
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">
             <video
@@ -22,7 +46,7 @@ export default function StartingPage({ playAudio, videoRef })
                 </div>
                 <div className="flex gap-2">
                     <img onMouseEnter={playAudio} className="gethover" src="/Buttons/huntbefore.png" />
-                    <img onMouseEnter={playAudio} className="greenloginhover" src="/Buttons/logins/huntbefore.png" />
+                    <img onClick={toLogin} onMouseEnter={playAudio} className="greenloginhover" src="/Buttons/logins/huntbefore.png" />
                 </div>
             </div>
                 

@@ -1,9 +1,26 @@
 import { useNavigate } from 'react-router-dom'
 import './Auth.css'
+import { useEffect, useRef } from 'react'
 
 export default function LoginPage()
 {
     const navigate = useNavigate()
+    const wooshRef = useRef(null)
+
+    useEffect(() => {
+
+        wooshRef.current = new Audio('/HoverSounds/woosh.wav')
+
+        wooshRef.current.preload = 'auto'
+
+        
+
+    }, [])
+
+    const wooshSound = () => {
+        wooshRef.current.currentTime = 0
+        wooshRef.current.play()
+    }
 
     const home = () =>
     {
@@ -17,7 +34,7 @@ export default function LoginPage()
                     <span className='agon-head'>AGON SNIPE</span>
                     </div>
 
-                    <button onClick={home} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>           
+                    <button onClick={() => {home(), wooshSound()}} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>           
             </div>
         <div className="login-panel mt-[120px] px-9 relative flex flex-col justify-center items-center w-[430px]">
             <img className='relative top-[-50px]' src='/authentication/profile.png' />

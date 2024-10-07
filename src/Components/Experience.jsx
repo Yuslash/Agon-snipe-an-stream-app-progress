@@ -111,19 +111,19 @@ export default function Exprerience()
     const renderPanel = () => {
         switch (activePanel) {
             case 'starting':
-                return <StartingPage videoRef={videoRef} playAudio={playAudio} />
+                return <StartingPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
             case 'red':
-                return <RedStartPage videoRef={videoRef} playAudio={playAudio} />
+                return <RedStartPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
             case 'black':
-                return <BlackMythPage videoRef={videoRef} playAudio={playAudio} />
+                return <BlackMythPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
             case 'fort':
-                return <FortStartPage videoRef={videoRef} playAudio={playAudio} />
+                return <FortStartPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
             case 'solo':
-                return <SoloStartPage videoRef={videoRef} playAudio={playAudio}/>
+                return <SoloStartPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio}/>
             case 'monster':
-                return <MonsterStartPage videoRef={videoRef} playAudio={playAudio} />     
+                return <MonsterStartPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />     
             default:
-                return <StartingPage videoRef={videoRef} playAudio={playAudio} />
+                return <StartingPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
         }
     }
     
