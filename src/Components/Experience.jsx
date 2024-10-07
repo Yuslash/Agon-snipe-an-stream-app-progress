@@ -111,7 +111,7 @@ export default function Exprerience()
     const renderPanel = () => {
         switch (activePanel) {
             case 'starting':
-                return <StartingPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
+                return <StartingPage  stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
             case 'red':
                 return <RedStartPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
             case 'black':
@@ -123,9 +123,10 @@ export default function Exprerience()
             case 'monster':
                 return <MonsterStartPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />     
             default:
-                return <StartingPage stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
+                return <StartingPage  stopAudio={audio.current} videoRef={videoRef} playAudio={playAudio} />
         }
     }
+
     
 
     return <div className="absolute top-0 left-0 w-full h-full bg-black text-white overflow-hidden">
@@ -141,81 +142,82 @@ export default function Exprerience()
                 <div className="frame-panel pointer-events-none flex w-full h-full absolute top-0 left-0 to-blue-400">
                     <div className=" w-full "></div>
                     <div className="right-box-panel  pointer-events-auto w-full z-10 flex items-end py-44">
-                        <div className="page-frame w-full p-2 flex gap-2">
-                            
-                            <button 
-                            onMouseEnter={cameraAudio} 
-                            onClick={() => switchPanel('starting')} 
-                            className="frame-green w-[180px]  rounded p-1"
+                       
+                        <div className="page-frame z-0 w-full p-2 flex gap-2">
+
+                            <button
+                                onMouseEnter={cameraAudio}
+                                onClick={() => switchPanel('starting')}
+                                className="frame-green w-[180px]  rounded p-1"
                             >
-                                <img 
-                                className="rounded" 
-                                src="/framepage/hunt.png" 
+                                <img
+                                    className="rounded"
+                                    src="/framepage/hunt.png"
                                 />
 
                             </button>
-                            
-                            <button 
-                            onMouseEnter={cameraAudio} 
-                            onClick={() => switchPanel('red')} 
-                            className="frame-red w-[180px] rounded  p-1"
+
+                            <button
+                                onMouseEnter={cameraAudio}
+                                onClick={() => switchPanel('red')}
+                                className="frame-red w-[180px] rounded  p-1"
                             >
-                                <img 
-                                className="rounded" 
-                                src="/framepage/redpage.png"                                    
+                                <img
+                                    className="rounded"
+                                    src="/framepage/redpage.png"
                                 />
 
                             </button>
-                            
-                            <button 
-                            onMouseEnter={cameraAudio} 
-                            onClick={() => switchPanel('fort')} 
-                            className="frame-fort w-[180px] rounded  p-1">
-                                <img 
-                                className="rounded" 
-                                src="/framepage/fort.png" 
+
+                            <button
+                                onMouseEnter={cameraAudio}
+                                onClick={() => switchPanel('fort')}
+                                className="frame-fort w-[180px] rounded  p-1">
+                                <img
+                                    className="rounded"
+                                    src="/framepage/fort.png"
                                 />
 
                             </button>
-                            
-                            <button 
-                            onMouseEnter={cameraAudio} 
-                            onClick={() => switchPanel('black')} 
-                            className="frame-black w-[180px] rounded  p-1"
+
+                            <button
+                                onMouseEnter={cameraAudio}
+                                onClick={() => switchPanel('black')}
+                                className="frame-black w-[180px] rounded  p-1"
                             >
-                                <img 
-                                className="rounded" 
-                                src="/framepage/blackmyth.png"                                    
+                                <img
+                                    className="rounded"
+                                    src="/framepage/blackmyth.png"
                                 />
 
                             </button>
 
-                            <button 
-                            onMouseEnter={cameraAudio} 
-                            onClick={() => switchPanel('solo')} 
-                            className="frame-solo w-[180px] rounded  p-1"
+                            <button
+                                onMouseEnter={cameraAudio}
+                                onClick={() => switchPanel('solo')}
+                                className="frame-solo w-[180px] rounded  p-1"
                             >
-                                <img 
-                                className="rounded" 
-                                src="/framepage/solo.png"                                   
+                                <img
+                                    className="rounded"
+                                    src="/framepage/solo.png"
                                 />
 
                             </button>
 
-                            <button 
-                            onMouseEnter={cameraAudio} 
-                            onClick={() => switchPanel('monster')}
-                             className="frame-monster w-[180px] rounded  p-1"
-                             >
-                                <img 
-                                className="rounded" 
-                                src="/framepage/monster.png" 
+                            <button
+                                onMouseEnter={cameraAudio}
+                                onClick={() => switchPanel('monster')}
+                                className="frame-monster w-[180px] rounded  p-1"
+                            >
+                                <img
+                                    className="rounded"
+                                    src="/framepage/monster.png"
                                 />
 
                             </button>
 
-                        
-                        </div>
+
+                        </div> 
                     </div>
                 </div>
                 

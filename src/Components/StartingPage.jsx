@@ -4,6 +4,7 @@ import AnimationLoading from "../Animations/AnimationLoading"
 
 export default function StartingPage({ playAudio, videoRef, stopAudio })
 {
+
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -22,7 +23,8 @@ export default function StartingPage({ playAudio, videoRef, stopAudio })
         }, fakeLoadingTime)
     }
 
-    if(isLoading) { return <AnimationLoading /> }
+
+    if (isLoading) { return <AnimationLoading /> }
 
     return <>
         <div className="mass w-full h-full absolute top-0 left-0 bg-black overflow-hidden">

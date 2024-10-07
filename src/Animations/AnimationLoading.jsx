@@ -82,7 +82,7 @@ export default function AnimationLoading() {
 
     return (
         <>
-            <div style={{ background: bgColor, color: textColor }} ref={expandScale} className='scontainer  absolute top-0 left-0 w-full h-full flex justify-center items-center'>
+            <div style={{ background: bgColor, color: textColor }} ref={expandScale} className='scontainer z-50 absolute top-0 left-0 w-full h-full flex justify-center items-center'>
                 <div ref={miniScale} className='w-full flex flex-col justify-center items-center'>
                     <Lottie animationData={gameAnimation} loop={true} style={{ width: 500, height: 500 }} />
                     <h1  className='loading-text font-semibold'>
