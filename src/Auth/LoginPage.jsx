@@ -1,9 +1,25 @@
+import { useNavigate } from 'react-router-dom'
 import './Auth.css'
 
 export default function LoginPage()
 {
-    return <div className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
-        <div className="login-panel px-9 relative flex flex-col justify-center items-center w-[430px]">
+    const navigate = useNavigate()
+
+    const home = () =>
+    {
+        navigate('/init')
+    }
+
+    return <div className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
+            <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
+                    <div className='flex items-center gap-4'>
+                    <img src='/authentication/logo.svg' />
+                    <span className='agon-head'>AGON SNIPE</span>
+                    </div>
+
+                    <button onClick={home} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>           
+            </div>
+        <div className="login-panel mt-[120px] px-9 relative flex flex-col justify-center items-center w-[430px]">
             <img className='relative top-[-50px]' src='/authentication/profile.png' />
             <span className='welcome-text'>WELCOME</span>
             <div className='main-buttons-hold flex w-full p-1 mt-7 tracking-wider rounded-2xl justify-center'>
