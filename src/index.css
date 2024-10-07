@@ -260,7 +260,7 @@
 
 .gethover:hover
 {
-  content: url('/Buttons/gethoverafter.png');
+  content: url('/Buttons/huntafter.png');
 }
 
 .havean-account
@@ -290,8 +290,20 @@
 
 .frame-red:hover 
 {
-  background-color: red;
+  background-color: rgb(255, 0, 68);
   box-shadow: 0px 4px 69.6px 16px #620606;
+}
+
+.frame-black:hover 
+{
+  background-color: red;
+  box-shadow: 0px 4px 69.6px 16px #7c0d0d;
+}
+
+.frame-fort:hover 
+{
+  background-color: blue;
+  box-shadow: 0px 4px 69.6px 16px #0d1c7c;
 }
 .redgethover, redgetreverse {
   cursor: pointer;
@@ -299,6 +311,10 @@
 
 .redgethover:hover {
   content: url('/Buttons/redgethoverafter.png');
+}
+
+.redgetreverse, .blackgetreverse {
+  cursor: pointer;
 }
 
 .redgetreverse:hover 
@@ -310,7 +326,7 @@
 }
 
 .greenloginhover:hover {
-  content: url('/Buttons/greenloginafter.png');
+  content: url('/Buttons/logins/huntafter.png');
 }
 
 .blackgethover, blackgetreverese {
@@ -323,4 +339,20 @@
 
 .blackgetreverse:hover {
   content: url('/Buttons/logins/blackafter.png');
+}
+
+.forthover {
+  cursor: pointer;
+}
+
+.fortlogin {
+  cursor: pointer;
+}
+
+.forthover:hover {
+  content: url('/Buttons/fortafter.png');
+}
+
+.fortlogin:hover {
+  content: url('/Buttons/logins/fortafter.png');
 }

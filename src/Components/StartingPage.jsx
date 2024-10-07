@@ -21,8 +21,8 @@ export default function StartingPage({ playAudio, videoRef })
                     <span>Contact</span>
                 </div>
                 <div className="flex gap-2">
-                    <img onMouseEnter={playAudio} className="gethover" src="/Buttons/gethoverbefore.png" />
-                    <img onMouseEnter={playAudio} className="greenloginhover" src="/Buttons/greenlogin.png" />
+                    <img onMouseEnter={playAudio} className="gethover" src="/Buttons/huntbefore.png" />
+                    <img onMouseEnter={playAudio} className="greenloginhover" src="/Buttons/logins/huntbefore.png" />
                 </div>
             </div>
                 
