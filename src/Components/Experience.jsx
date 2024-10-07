@@ -5,11 +5,13 @@ import BlackMythPage from "./BlackMythPage";
 import FortStartPage from "./FortStartPage";
 import SoloStartPage from "./SoloStartPage";
 import MonsterStartPage from "./MonsterStartPage";
+import AnimationLoading from "../Animations/AnimationLoading";
 
 export default function Exprerience()
 {
     const [initialAudio, setInitialAudio ] = useState(false)
     const [ activePanel, setActivePanel ] = useState('starting')
+    const [ isLoading, setIsLoading] = useState(true)
     const audio = useRef(null)
     const clickSound = useRef(null)
     const hoverAudio = useRef(null)
@@ -52,6 +54,18 @@ export default function Exprerience()
         cameraShutter.current.preload = 'auto'
 
         audio.current.loop = true
+
+        
+    }, [])
+
+    useEffect(() => {
+        const fakeLoadingTime = 3000 // 3 seconds fake loading time
+
+        const fakeLoading = setTimeout(() => {
+            setIsLoading(false)
+        }, fakeLoadingTime)
+
+        return () => clearTimeout(fakeLoading) // Clear timeout if component unmounts
     }, [])
 
     const enableAudio = () =>
@@ -59,6 +73,13 @@ export default function Exprerience()
         setInitialAudio(true)
 
         audio.current.play()
+
+        setIsLoading(true)
+        const fakeLoadingTime = 3000 // 3 seconds fake loading time
+
+        setTimeout(() => {
+            setIsLoading(false) // Set loading to false after 3 seconds
+        }, fakeLoadingTime)
     }
 
     const clickAudio = () =>
@@ -81,6 +102,10 @@ export default function Exprerience()
     const switchPanel = (panelName) => {
         clickAudio()
         setActivePanel(panelName)
+    }
+
+    if (isLoading) {
+        return <AnimationLoading />
     }
 
     const renderPanel = () => {
@@ -186,7 +211,7 @@ export default function Exprerience()
                                 className="rounded" 
                                 src="/framepage/monster.png" 
                                 />
-                                
+
                             </button>
 
                         

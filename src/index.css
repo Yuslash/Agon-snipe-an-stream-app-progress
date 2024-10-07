@@ -4,6 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: black;
+}
 
 @font-face {
   font-family: overwatch;
