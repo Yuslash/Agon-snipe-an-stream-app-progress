@@ -14,7 +14,7 @@ export default function StartingPage({ playAudio, videoRef })
         <div className="gradient-over flex absolute top-0 left-0 w-full h-full ">
             <div className="top-nav z-20 absolute top-0 left-0 w-full bg-blue-400 ">
                 <img className="flex-shrink-0 w-[200px] h-auto" src="Logo.png" />
-                <div className="top-midcon">
+                <div className="top-midcon pl-40">
                     <span>Home</span>
                     <span>About</span>
                     <span>Nothing</span>

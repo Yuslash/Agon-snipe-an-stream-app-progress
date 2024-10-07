@@ -237,7 +237,6 @@
 .top-midcon
 {
   display: flex;
-  padding: 30px 0px;
   align-items: flex-start;
   gap: 50px;
   /* margin-left: 150px; */
