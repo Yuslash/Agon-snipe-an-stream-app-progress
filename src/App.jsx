@@ -5,6 +5,8 @@ import Experience from "./Components/Experience.jsx"
 import RedStartPage from "./Components/RedStartPage.jsx"
 import LoadingPage from "./Animations/LoadingPage.jsx"
 import AnimationLoading from "./Animations/AnimationLoading.jsx"
+import LoginPage from "./Auth/LoginPage.jsx"
+import SignUpPage from "./Auth/SignUpPage.jsx"
 
 
 export default function App()
@@ -18,6 +20,9 @@ export default function App()
           <Route path="/red" element={<RedStartPage />} />
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/anime" element={<AnimationLoading />} />
+
+          <Route path="/login"  element={<LoginPage />} />
+          <Route path="/signup"  element={<SignUpPage />} />
         </Routes>
       </BrowserRouter>      
   </>
