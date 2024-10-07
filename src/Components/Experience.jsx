@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import StartingPage from "./StartingPage";
 import RedStartPage from "./RedStartPage";
+import BlackMythPage from "./BlackMythPage";
 
 export default function Exprerience()
 {
@@ -85,6 +86,8 @@ export default function Exprerience()
                 return <StartingPage videoRef={videoRef} playAudio={playAudio} />
             case 'red':
                 return <RedStartPage videoRef={videoRef} playAudio={playAudio} />
+            case 'black':
+                return <BlackMythPage videoRef={videoRef} playAudio={playAudio} />
             default:
                 return <StartingPage videoRef={videoRef} playAudio={playAudio} />
         }
@@ -112,6 +115,10 @@ export default function Exprerience()
                             
                             <button onMouseEnter={cameraAudio} onClick={() => switchPanel('red')} className="frame-red w-[180px] rounded  p-1">
                                 <img className="rounded" src="/framepage/redpage.png" />
+                            </button>
+                            
+                            <button onMouseEnter={cameraAudio} onClick={() => switchPanel('black')} className="frame-red w-[180px] rounded  p-1">
+                                <img className="rounded" src="/framepage/blackmyth.png" />
                             </button>
                         
                         </div>

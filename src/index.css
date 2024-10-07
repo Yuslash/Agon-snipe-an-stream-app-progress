@@ -312,3 +312,15 @@
 .greenloginhover:hover {
   content: url('/Buttons/greenloginafter.png');
 }
+
+.blackgethover, blackgetreverese {
+  cursor: pointer;
+}
+
+.blackgethover:hover {
+  content: url('/Buttons/blackhoverafter.png');
+}
+
+.blackgetreverse:hover {
+  content: url('/Buttons/logins/blackafter.png');
+}
