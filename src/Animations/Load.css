@@ -10,7 +10,6 @@
 .loading-text {
     position: relative;
     bottom: 150px;
-    color: yellow;
     font-size: 110px;
     font-family: 'fortnite';
     font-style: italic;
@@ -18,7 +17,6 @@
 
 .dot {
     font-size: 120px;
-    color: yellow;
     /* White dots */
     font-family: 'fortnite';
     font-style: italic;
