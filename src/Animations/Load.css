@@ -1,0 +1,55 @@
+@font-face {
+    font-family: fortnite;
+    src: url('/Fonts/fortnite');
+}
+
+.scontainer {
+    overflow: hidden;
+}
+
+.loading-text {
+    position: relative;
+    bottom: 150px;
+    color: yellow;
+    font-size: 110px;
+    font-family: 'fortnite';
+    font-style: italic;
+}
+
+.dot {
+    font-size: 120px;
+    color: yellow;
+    /* White dots */
+    font-family: 'fortnite';
+    font-style: italic;
+    animation: blink 1.5s infinite;
+    margin: 0 3px;
+    /* Space between dots */
+}
+
+/* Animation delays for each dot */
+.dot1 {
+    animation-delay: 0s;
+}
+
+.dot2 {
+    animation-delay: 0.2s;
+}
+
+.dot3 {
+    animation-delay: 0.4s;
+}
+
+/* Blinking animation */
+@keyframes blink {
+
+    0%,
+    20% {
+        opacity: 0;
+    }
+
+    30%,
+    100% {
+        opacity: 1;
+    }
+}
