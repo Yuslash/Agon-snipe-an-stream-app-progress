@@ -92,7 +92,7 @@ export default function SignUpPage() {
             <div className='flex flex-col gap-5 w-full justify-center mt-[60px]'>
                 <button className='to-account w-full py-4'><span>CREATE AN ACCOUNT</span></button>
                 <img className='' src='/authentication/orline.png'></img>
-                <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>LOGIN WITH DISCORD</span></button>
+                <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>SIGNUP WITH DISCORD</span></button>
             </div>
         </div>
     </div>
