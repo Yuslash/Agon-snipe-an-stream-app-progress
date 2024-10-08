@@ -46,6 +46,11 @@ export default function LoginPage()
         navigate('/init')
     }
 
+    const moveToReg = () =>
+    {
+        navigate('/signup')
+    }
+
     return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
             <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
                     <div className='flex items-center gap-4'>
@@ -57,10 +62,10 @@ export default function LoginPage()
             </div>
         <div className="login-panel mt-[120px] px-9 relative flex flex-col justify-center items-center w-[430px]">
             <img className='relative top-[-50px]' src='/authentication/profile.png' />
-            <span className='welcome-text'>WELCOME</span>
+            <span className='superwelcome-text'>WELCOME</span>
             <div className='main-buttons-hold flex w-full p-1 mt-7 tracking-wider rounded-2xl justify-center'>
-                    <button className='regiser-button w-full rounded-2xl'>REGISTER</button>
-                    <button className='login-button w-full rounded-2xl'>LOGIN</button>
+                <button onClick={moveToReg} className='regiser-button w-full rounded-2xl'>REGISTER</button>
+                <button  className='login-button w-full rounded-2xl'>LOGIN</button>
             </div>
             <div className=' w-full flex gap-1 flex-col mt-4'>
                 <span className='above-text'>Username</span>

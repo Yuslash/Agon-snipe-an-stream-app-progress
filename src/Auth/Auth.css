@@ -31,6 +31,17 @@ body {
 
 .welcome-text {
     align-self: stretch;
+    color: #FFF;
+    text-align: center;
+    font-family: Oxanium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.superwelcome-text {
+    align-self: stretch;
     margin-top: -30px;
     color: #FFF;
     text-align: center;
@@ -66,7 +77,29 @@ body {
     line-height: normal;
     border: 2px solid #6A6AA5;
     background: #393768;
-    padding: 12px 20px;
+    padding: 12px 0px;
+}
+
+.loginreg-button {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.regreg-button
+{
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 2px solid #6A6AA5;
+    background: #393768;
+    padding: 12px 0px;
 }
 
 .above-text {
@@ -74,7 +107,7 @@ body {
     color: #676799;
     font-family: 'poppins';
     font-size: 12px;
-    font-style: normal;
+    font-style: normal; 
     font-weight: 700;
     line-height: normal;
 }
