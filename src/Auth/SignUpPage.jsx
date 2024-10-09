@@ -14,7 +14,6 @@ export default function SignUpPage() {
 
     useEffect(() => {
 
-
         const randomNum = Math.floor(100 + Math.random() * 900)
         setGuestName(`MasterSo_${randomNum}`)
 
@@ -25,6 +24,8 @@ export default function SignUpPage() {
     }, [])
 
     useEffect(() => {
+
+
 
         const handleMouseMove = (e) => {
             const x = (e.clientX / window.innerWidth) * 5
@@ -97,7 +98,16 @@ export default function SignUpPage() {
                     progress: undefined,
                     theme: "colored",
                     transition: Bounce,
+                    onClose: () => {
+                        navigate('/upload')
+                    }
                 })
+                
+                const token = import.meta.env.VITE_TOKEN
+
+                localStorage.setItem('username', username)
+                localStorage.setItem('authToken', token)
+
             } else if (response.status === 400) {
                 toast.error(data.message, {
                     position: "top-center",
@@ -126,6 +136,15 @@ export default function SignUpPage() {
             })
         }
             
+    }
+
+    const continueWithGuest = () => {
+
+        const token = import.meta.env.VITE_GUEST_TOKEN
+
+        localStorage.setItem('guestToken', token)
+
+        navigate('/upload')
     }
 
 
@@ -188,7 +207,7 @@ export default function SignUpPage() {
                     <img src='/authentication/profile.png' />
                     <span className='guest-name'>{guestName}</span>
                 <div className='w-full px-[75px]'>
-                    <button className='guest-button w-full flex justify-center items-center gap-2 py-[10px] '><img src='/authentication/rocket.png' /><span>LOGIN WITH GUEST</span></button>
+                        <button onClick={continueWithGuest} className='guest-button w-full flex justify-center items-center gap-2 py-[10px] '><img src='/authentication/rocket.png' /><span>CONTINUE WITH GUEST</span></button>
                 </div>
                 </div>
             </div>
