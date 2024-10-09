@@ -7,6 +7,8 @@ import LoadingPage from "./Animations/LoadingPage.jsx"
 import AnimationLoading from "./Animations/AnimationLoading.jsx"
 import LoginPage from "./Auth/LoginPage.jsx"
 import SignUpPage from "./Auth/SignUpPage.jsx"
+import DataTest from "./Testing/DataTest.jsx"
+import ParameterPage from "./Testing/ParameterPage.jsx"
 
 
 export default function App()
@@ -23,6 +25,9 @@ export default function App()
 
           <Route path="/login"  element={<LoginPage />} />
           <Route path="/signup"  element={<SignUpPage />} />
+
+          <Route path="/test" element={<DataTest />} />
+          <Route path="/data/:id" element={<ParameterPage />} />
         </Routes>
       </BrowserRouter>      
   </>
