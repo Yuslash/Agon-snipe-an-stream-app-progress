@@ -1,13 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import './Auth.css'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function SignUpPage() {
     const navigate = useNavigate()
     const wooshRef = useRef(null)
     const imageRef = useRef()
+    const [guestName, setGuestName ] = useState('')
 
     useEffect(() => {
+
+        const randomNum = Math.floor(100 + Math.random() * 900)
+        setGuestName(`MasterSo_${randomNum}`)
 
         wooshRef.current = new Audio('/HoverSounds/woosh.wav')
 
@@ -28,7 +32,7 @@ export default function SignUpPage() {
         }
 
         window.addEventListener('mousemove', handleMouseMove)
-
+        
         return () => {
             window.removeEventListener('mousemove', handleMouseMove)
         }
@@ -58,15 +62,16 @@ export default function SignUpPage() {
 
             <button onClick={() => { home(), wooshSound() }} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>
         </div>
-        <div className="login-panel mt-[120px] px-9 relative flex flex-col justify-center items-center w-[430px]">
-            <div className='flex'>
+        <div className='flex gap-6 mt-[120px]'>
+            <div className="login-panel px-9 relative flex flex-col justify-center items-center w-[430px]">
+                <div className='flex'>
 
                 <div className='flex h-7 items-center justify-center gap-4 mt-11'>
                     <img src='/authentication/signuplogo.png' />
                     <span className='welcome-text'>AGON SNIPE</span>
                 </div>
 
-            </div> 
+                </div> 
             <div className='main-buttons-hold flex w-full p-1 mt-7 tracking-wider rounded-2xl justify-center'>
                 <button className='regreg-button w-full rounded-2xl'>REGISTER</button>
                 <button onClick={moveToLogin} className='loginreg-button w-full rounded-2xl'>LOGIN</button>
@@ -93,6 +98,16 @@ export default function SignUpPage() {
                 <button className='to-account w-full py-4'><span>CREATE AN ACCOUNT</span></button>
                 <img className='' src='/authentication/orline.png'></img>
                 <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>SIGNUP WITH DISCORD</span></button>
+            </div>
+            </div>
+            <div className='guest-reg w-[430px] flex justify-center '>
+                <div className='relative top-[-50px] w-full flex flex-col gap-5 items-center'>
+                    <img src='/authentication/profile.png' />
+                    <span className='guest-name'>{guestName}</span>
+                <div className='w-full px-[75px]'>
+                    <button className='guest-button w-full flex justify-center items-center gap-2 py-[10px] '><img src='/authentication/rocket.png' /><span>LOGIN WITH GUEST</span></button>
+                </div>
+                </div>
             </div>
         </div>
     </div>

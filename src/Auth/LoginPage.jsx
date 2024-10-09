@@ -62,7 +62,7 @@ export default function LoginPage()
             </div>
         <div className="login-panel mt-[120px] px-9 relative flex flex-col justify-center items-center w-[430px]">
             <img className='relative top-[-50px]' src='/authentication/profile.png' />
-            <span className='superwelcome-text'>WELCOME</span>
+            <span className='superwelcome-text'>WELCOME BACK</span>
             <div className='main-buttons-hold flex w-full p-1 mt-7 tracking-wider rounded-2xl justify-center'>
                 <button onClick={moveToReg} className='regiser-button w-full rounded-2xl'>REGISTER</button>
                 <button  className='login-button w-full rounded-2xl'>LOGIN</button>
