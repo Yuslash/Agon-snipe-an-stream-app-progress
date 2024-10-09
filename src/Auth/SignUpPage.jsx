@@ -7,6 +7,8 @@ export default function SignUpPage() {
     const wooshRef = useRef(null)
     const imageRef = useRef()
     const [guestName, setGuestName ] = useState('')
+    const [username, setUsername] = useState('')
+    const [ password, setPassword] = useState('') 
 
     useEffect(() => {
 
@@ -32,7 +34,7 @@ export default function SignUpPage() {
         }
 
         window.addEventListener('mousemove', handleMouseMove)
-        
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove)
         }
@@ -52,6 +54,30 @@ export default function SignUpPage() {
     {
         navigate('/login')
     }
+
+    const addUser = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/signup', {
+                method : "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({ username, password })
+            })
+
+            const data = await response.json()
+
+            if(response.status === 201) {
+                alert('User Added Successfully')
+            } else if (response.status === 400) { alert(data.message) }
+            
+        } catch (error) {
+            console.error(error)
+            alert("There is an error Occurt Please try Again")
+        }
+            
+    }
+
 
     return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
         <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
@@ -82,6 +108,8 @@ export default function SignUpPage() {
                     className='text-input p-4'
                     placeholder='Enter Your Username'
                     type='text'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
 
@@ -91,11 +119,13 @@ export default function SignUpPage() {
                     className='text-input p-4'
                     placeholder='Enter Your Password'
                     type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
 
             <div className='flex flex-col gap-5 w-full justify-center mt-[60px]'>
-                <button className='to-account w-full py-4'><span>CREATE AN ACCOUNT</span></button>
+                    <button onClick={addUser} className='to-account w-full py-4'><span>CREATE AN ACCOUNT</span></button>
                 <img className='' src='/authentication/orline.png'></img>
                 <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>SIGNUP WITH DISCORD</span></button>
             </div>
