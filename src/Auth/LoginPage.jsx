@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import './Auth.css'
 import { useEffect, useRef, useState } from 'react'
+import { toast, ToastContainer, Bounce } from 'react-toastify'
 
 export default function LoginPage()
 {
@@ -56,7 +57,17 @@ export default function LoginPage()
     const checkUserData = async () => {
 
         if(!username || !password) {
-            alert("All fields Are Required")
+            toast.warn(' All Fields Are Required', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
             return
         }
 
@@ -68,18 +79,61 @@ export default function LoginPage()
             body: JSON.stringify({ username, password })
         })
 
+        const data = await response.json()
+
         if(response.status === 200) {
-            alert('Login Successfully!')
+            toast.success('Login Successfully..', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
         } else if (response.status === 404) {
-            alert('User Not found')
+            toast.error(data.message, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
         } else if (response.status === 400) {
-            alert('Invalid Password')
+            toast.error(data.message, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
         } else {
-            alert('Something went Wrong Please Try again')
+            toast.error("An error occurred. Please try again.", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
         }
     }
 
     return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
+                <ToastContainer />
             <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
                     <div className='flex items-center gap-4'>
                     <img src='/authentication/logo.svg' />

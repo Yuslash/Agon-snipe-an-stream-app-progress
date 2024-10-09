@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import './Auth.css'
 import { useEffect, useRef, useState } from 'react'
+import { toast, ToastContainer, Bounce } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function SignUpPage() {
     const navigate = useNavigate()
@@ -59,7 +61,17 @@ export default function SignUpPage() {
     const addUser = async () => {
 
         if (!username || !password) {
-            alert("All fields are Required Please fill it")
+            toast.warn(' All Fields Are Required', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
             return
         }
 
@@ -75,18 +87,50 @@ export default function SignUpPage() {
             const data = await response.json()
 
             if(response.status === 201) {
-                alert('User Added Successfully')
-            } else if (response.status === 400) { alert(data.message) }
+                toast.success('User Added Successfully..', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce,
+                })
+            } else if (response.status === 400) {
+                toast.error(data.message, {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce,
+                }) }
             
         } catch (error) {
             console.error(error)
-            alert("There is an error Occurt Please try Again")
+            toast.error("An error occurred. Please try again.", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
         }
             
     }
 
 
     return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
+        <ToastContainer theme='colored' position='top-center' />
         <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
             <div className='flex items-center gap-4'>
                 <img src='/authentication/logo.svg' />

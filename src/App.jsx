@@ -9,6 +9,8 @@ import LoginPage from "./Auth/LoginPage.jsx"
 import SignUpPage from "./Auth/SignUpPage.jsx"
 import DataTest from "./Testing/DataTest.jsx"
 import ParameterPage from "./Testing/ParameterPage.jsx"
+import Upload from "./Uploads/Upload.jsx"
+import AlertApp from "./Delta/Alertapp.jsx"
 
 
 export default function App()
@@ -23,11 +25,15 @@ export default function App()
           <Route path="/loading" element={<LoadingPage />} />
           <Route path="/anime" element={<AnimationLoading />} />
 
+          <Route path="/alert" element={<AlertApp />} />
+
           <Route path="/login"  element={<LoginPage />} />
           <Route path="/signup"  element={<SignUpPage />} />
 
           <Route path="/test" element={<DataTest />} />
           <Route path="/data/:id" element={<ParameterPage />} />
+
+          <Route path="/upload" element={<Upload /> } />
         </Routes>
       </BrowserRouter>      
   </>
