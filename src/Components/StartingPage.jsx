@@ -23,6 +23,22 @@ export default function StartingPage({ playAudio, videoRef, stopAudio })
         }, fakeLoadingTime)
     }
 
+    const toSignup = () =>
+    {   
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+
+        setIsLoading(true)
+
+       const fakeLoadingTime = 3000
+
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/signup')
+        }, fakeLoadingTime)
+    }
+
+    
 
     if (isLoading) { return <AnimationLoading /> }
 
@@ -47,7 +63,7 @@ export default function StartingPage({ playAudio, videoRef, stopAudio })
                     <span>Contact</span>
                 </div>
                 <div className="flex gap-2">
-                    <img onMouseEnter={playAudio} className="gethover" src="/Buttons/huntbefore.png" />
+                    <img onClick={toSignup} onMouseEnter={playAudio} className="gethover" src="/Buttons/huntbefore.png" />
                     <img onClick={toLogin} onMouseEnter={playAudio} className="greenloginhover" src="/Buttons/logins/huntbefore.png" />
                 </div>
             </div>

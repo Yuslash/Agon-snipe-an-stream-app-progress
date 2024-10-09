@@ -22,6 +22,20 @@ export default function MonsterStartPage({ playAudio, videoRef, stopAudio }) {
         }, fakeLoadingTime)
     }
 
+    const toSignup = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+
+        setIsLoading(true)
+
+        const fakeLoadingTime = 3000
+
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/signup')
+        }, fakeLoadingTime)
+    }
+
     if (isLoading) { return <AnimationLoading /> }
 
     return <>
@@ -45,7 +59,7 @@ export default function MonsterStartPage({ playAudio, videoRef, stopAudio }) {
                     <span>Contact</span>
                 </div>
                 <div className="flex items-center gap-2">
-                    <img onMouseEnter={playAudio} className="monsterhover" src="/Buttons/monsterbefore.png" />
+                    <img onClick={toSignup} onMouseEnter={playAudio} className="monsterhover" src="/Buttons/monsterbefore.png" />
                     <img onClick={toLogin} onMouseEnter={playAudio} className="monsterlogin" src="/Buttons/logins/monsterbefore.png" />
                 </div>
             </div>

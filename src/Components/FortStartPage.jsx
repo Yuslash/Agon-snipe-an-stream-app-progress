@@ -22,6 +22,20 @@ export default function FortStartPage({ playAudio, videoRef, stopAudio }) {
         }, fakeLoadingTime)
     }
 
+    const toSignup = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+
+        setIsLoading(true)
+
+        const fakeLoadingTime = 3000
+
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/signup')
+        }, fakeLoadingTime)
+    }
+
     if (isLoading) { return <AnimationLoading /> }
 
     return <>
@@ -45,7 +59,7 @@ export default function FortStartPage({ playAudio, videoRef, stopAudio }) {
                     <span>Contact</span>
                 </div>
                 <div className="flex gap-2">
-                    <img onMouseEnter={playAudio} className="forthover" src="/Buttons/fortbefore.png" />
+                    <img onClick={toSignup} onMouseEnter={playAudio} className="forthover" src="/Buttons/fortbefore.png" />
                     <img onClick={toLogin} onMouseEnter={playAudio} className="fortlogin" src="/Buttons/logins/fortbefore.png" />
                 </div>
             </div>

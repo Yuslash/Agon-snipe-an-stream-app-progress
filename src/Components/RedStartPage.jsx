@@ -22,6 +22,20 @@ export default function RedStartPage({ playAudio, videoRef, stopAudio }) {
         }, fakeLoadingTime)
     }
 
+    const toSignup = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+
+        setIsLoading(true)
+
+        const fakeLoadingTime = 3000
+
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/signup')
+        }, fakeLoadingTime)
+    }
+
     if (isLoading) { return <AnimationLoading /> }
 
 
@@ -46,7 +60,7 @@ export default function RedStartPage({ playAudio, videoRef, stopAudio }) {
                     <span>Contact</span>
                 </div>
                 <div className="flex gap-2">
-                    <img onMouseEnter={playAudio} className="redgethover" src="/Buttons/redgethoverbefore.png" />
+                    <img onClick={toSignup} onMouseEnter={playAudio} className="redgethover" src="/Buttons/redgethoverbefore.png" />
                     <img onClick={toLogin} onMouseEnter={playAudio} className="redgetreverse" src="/Buttons/loginhoverbefore.png" />
                 </div>
             </div>

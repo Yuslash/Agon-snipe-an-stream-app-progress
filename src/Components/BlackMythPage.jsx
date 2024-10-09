@@ -22,6 +22,20 @@ export default function BlackMythPage({ playAudio, videoRef, stopAudio }) {
         }, fakeLoadingTime)
     }
 
+    const toSignup = () => {
+        stopAudio.pause()
+        stopAudio.currentTime = 0
+
+        setIsLoading(true)
+
+        const fakeLoadingTime = 3000
+
+        setTimeout(() => {
+            setIsLoading(false)
+            navigate('/signup')
+        }, fakeLoadingTime)
+    }
+
     if (isLoading) { return <AnimationLoading /> }
 
     return <>
@@ -45,7 +59,7 @@ export default function BlackMythPage({ playAudio, videoRef, stopAudio }) {
                     <span>Contact</span>
                 </div>
                 <div className="flex gap-2">
-                    <img onMouseEnter={playAudio} className="blackgethover" src="/Buttons/blackhoverbefore.png" />
+                    <img onClick={toSignup} onMouseEnter={playAudio} className="blackgethover" src="/Buttons/blackhoverbefore.png" />
                     <img onClick={toLogin} onMouseEnter={playAudio} className="blackgetreverse" src="/Buttons/logins/blackbeforee.png" />
                 </div>
             </div>
