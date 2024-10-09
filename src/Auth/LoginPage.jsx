@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom'
 import './Auth.css'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function LoginPage()
 {
     const navigate = useNavigate()
     const wooshRef = useRef(null)
     const imageRef = useRef()
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
 
     useEffect(() => {
 
@@ -51,6 +53,32 @@ export default function LoginPage()
         navigate('/signup')
     }
 
+    const checkUserData = async () => {
+
+        if(!username || !password) {
+            alert("All fields Are Required")
+            return
+        }
+
+        const response = await fetch('http://localhost:3000/login', {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ username, password })
+        })
+
+        if(response.status === 200) {
+            alert('Login Successfully!')
+        } else if (response.status === 404) {
+            alert('User Not found')
+        } else if (response.status === 400) {
+            alert('Invalid Password')
+        } else {
+            alert('Something went Wrong Please Try again')
+        }
+    }
+
     return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
             <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
                     <div className='flex items-center gap-4'>
@@ -72,7 +100,9 @@ export default function LoginPage()
                 <input 
                 className='text-input p-4'
                 placeholder='Enter Your Username'
-                type='text'                    
+                type='text'
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}                    
                 />
             </div>
 
@@ -81,12 +111,14 @@ export default function LoginPage()
                 <input 
                 className='text-input p-4'
                 placeholder='Enter Your Password'
-                type='password'                    
+                type='password'
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}                    
                 />
             </div>
 
             <div className='flex flex-col gap-5 w-full justify-center mt-[60px]'>
-                <button className='to-account w-full py-4'><span>LOGIN TO ACCOUNT</span></button>
+                <button onClick={checkUserData} className='to-account w-full py-4'><span>LOGIN TO ACCOUNT</span></button>
             <img className='' src='/authentication/orline.png'></img>
             <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>LOGIN WITH DISCORD</span></button>
             </div>
