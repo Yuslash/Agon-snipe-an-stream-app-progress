@@ -84,7 +84,7 @@ export default function LoginPage()
         if(response.status === 200) {
             toast.success('Login Successfully..', {
                 position: "top-center",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -92,7 +92,17 @@ export default function LoginPage()
                 progress: undefined,
                 theme: "colored",
                 transition: Bounce,
+                onClose: () => {
+                    navigate('/upload')
+                }
             })
+
+            const token = import.meta.env.VITE_TOKEN
+
+            localStorage.setItem('username', username)
+            localStorage.setItem('authToken', token)
+            localStorage.removeItem('guestToken')
+
         } else if (response.status === 404) {
             toast.error(data.message, {
                 position: "top-center",

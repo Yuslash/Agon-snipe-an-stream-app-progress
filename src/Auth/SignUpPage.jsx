@@ -90,7 +90,7 @@ export default function SignUpPage() {
             if(response.status === 201) {
                 toast.success('User Added Successfully..', {
                     position: "top-center",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

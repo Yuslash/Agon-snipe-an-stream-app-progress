@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import './IconUpload.css'
 import Bubbles from "./Bubbles"
@@ -7,7 +7,19 @@ export default function Upload() {
 
     const navigate = useNavigate()
 
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [username, setUsername ] = useState("")
+    const [imageFile, setImageFile] = useState(null)
+    const [videoUrl, setVideoUrl] = useState("")
+
     useEffect(() => {
+
+        const user = localStorage.getItem('username')
+
+        if(user) {
+            setUsername(user)
+        }
 
         const expectedToken = import.meta.env.VITE_TOKEN
         const localToken = localStorage.getItem('authToken')
@@ -24,6 +36,34 @@ export default function Upload() {
 
     }, [navigate])
 
+    const uploadData = async () => {
+
+        if(!title || !description || !imageFile) {
+            alert("all field is required")
+            return
+        }
+
+        const formData = new FormData()
+        formData.append('title',title)
+        formData.append('description', description)
+        formData.append('username',username)
+        formData.append('imageFile', imageFile)
+
+        const response = await fetch('http://localhost:3000/upload', {
+            method: "POST",
+            body: formData,
+        })
+
+        if(response.ok) {
+            alert("upload Successully")
+            setUsername('')
+            setTitle('')
+            setDescription('')
+            setImageFile(null)
+        }
+
+    }
+
     return <div className="main-upload z-50 absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[160px] py-20">
         <Bubbles />
         <div className="upload-panel p-5 w-full h-full flex">
@@ -33,17 +73,17 @@ export default function Upload() {
 
                 <div className="all-input-field flex flex-col gap-4 mt-4">
                     <input
-                     
                      className="super-input-field w-full"    
                     placeholder="Title"
-
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     />
 
                     <textarea
-                     
                      className="super-input-field h-[120px] w-full"    
                     placeholder="Description"
-
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     />
                     
                     <h1 className="text-xl tracking-wide">Select Game</h1>
@@ -59,24 +99,37 @@ export default function Upload() {
                         {/* Blue Image with File Upload */}
                         <label className="flex-1 cursor-pointer">
                             <img className="w-full h-full object-contain" src="/upload/uploadblue.png" alt="Upload Blue" />
-                            <input type="file" className="hidden" accept="video/*" />
+                            <input
+                            type="file" 
+                            className="hidden" 
+                            accept="video/*"    
+                            />
                         </label>
 
                         {/* Purple Image with File Upload */}
                         <label className="flex-1 cursor-pointer">
                             <img className="w-full h-full object-contain" src="/upload/uploadpurple.png" alt="Upload Purple" />
-                            <input type="file" className="hidden" accept="image/*" />
+                            <input 
+                            type="file" 
+                            className="hidden" 
+                            accept="image/*" 
+                            onChange={(e) => setImageFile(e.target.files[0])}    
+                            />
                         </label>
                     </div>
 
-                    <button className="discord-button py-4 rounded-lg font-semibold text-xl">Upload</button>
+                    <button onClick={uploadData} className="discord-button py-4 rounded-lg font-semibold text-xl">Upload</button>
 
 
                 </div>
 
             </div>
                 <div className="w-[1130px] h-full bg-violet-500 rounded-xl flex justify-center items-center">
+                {imageFile ? (
+                    <img src={URL.createObjectURL(imageFile)} className="w-full h-full" alt="Preview" />
+                ) : (
                     <span className="text-2xl font-semibold">PREVIEW</span>
+                )}
                 </div>
         </div>
     </div>
