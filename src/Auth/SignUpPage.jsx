@@ -12,6 +12,7 @@ export default function SignUpPage() {
 
     useEffect(() => {
 
+
         const randomNum = Math.floor(100 + Math.random() * 900)
         setGuestName(`MasterSo_${randomNum}`)
 
@@ -56,6 +57,12 @@ export default function SignUpPage() {
     }
 
     const addUser = async () => {
+
+        if (!username || !password) {
+            alert("All fields are Required Please fill it")
+            return
+        }
+
         try {
             const response = await fetch('http://localhost:3000/signup', {
                 method : "POST",
@@ -108,6 +115,7 @@ export default function SignUpPage() {
                     className='text-input p-4'
                     placeholder='Enter Your Username'
                     type='text'
+                    required
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
@@ -119,6 +127,7 @@ export default function SignUpPage() {
                     className='text-input p-4'
                     placeholder='Enter Your Password'
                     type='password'
+                    required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
