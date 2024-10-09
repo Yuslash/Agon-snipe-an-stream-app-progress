@@ -1,109 +1,65 @@
-import { useState } from "react"
-import React from 'react';
 
-const Site = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-        message: ''
-    })
+export default function Site() {
+    return<>
+        
+        <div className="main-upload absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-4 md:px-16 py-8 md:py-20">
+            <div className="upload-panel p-5 w-full h-full flex flex-col md:flex-row gap-4">
+                {/* Left Section (Form) */}
+                <div className="w-full md:w-1/2 h-full flex flex-col gap-2 py-10 px-4 md:px-16">
+                    <span className="text-2xl md:text-3xl font-semibold">Let's Upload Your Monster Content! ✨</span>
+                    <span className="text-xs md:text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
 
-    const [loading, setLoading] = useState(false) // Add loading state
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        setLoading(true) // Set loading to true when form is submitted
-        try {
-            const response = await fetch('https://catalyst-test-kappa.vercel.app/submit-form', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-
-            const data = await response.json()
-            alert(data.message)
-
-            // Clear form after successful submission
-            setFormData({
-                firstName: '',
-                lastName: '',
-                email: '',
-                phoneNumber: '',
-                message: ''
-            })
-
-            // Redirect after submission
-            window.location.href = 'https://success-alert-template-react-jsx.vercel.app/'
-        } catch (error) {
-            console.log('There was an error submitting the form!', error)
-        } finally {
-            setLoading(false) // Set loading back to false after submission is complete
-        }
-    }
-
-    return (
-        <div className="site-container mt-[120px]">
-            <div className='text-center'>
-                <p className="get-in text-white text-5xl font-extrabold">Welcome To Uploading Page</p>
-                <p className="reach-out text-gray-500 mt-2 text-xl font-small">Uncover a New Dimension of Possibilities with Us!</p>
-            </div>
-            <div className="body-color mt-16 text-white flex gap-8 p-5">
-                <div className="inside-body p-10 flex flex-col gap-2 max-w-xl">
-                    <h1 className="font-semibold text-2xl">Let's Ignite Your Journey! ✨</h1>
-                    <h1 className="text-gray-500 text-xs">Begin your creative journey with us. Fill out the form below to connect and start your adventure.</h1>
-                    <form onSubmit={handleSubmit} className="mt-10 flex flex-col gap-3">
-                        <div className="flex gap-2 justify-between">
-                            <input
-                                className="input-field w-full"
-                                name="firstName"
-                                placeholder="Enter Title"
-                                value={formData.firstName}
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
+                    <div className="all-input-field flex flex-col gap-4 mt-4">
+                        {/* Title Input */}
                         <input
-                            className="input-field w-full"
-                            name="email"
-                            placeholder="Enter Description"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
+                            className="super-input-field w-full"
+                            placeholder="Title"
                         />
-                        <input
-                            className="input-field w-full"
-                            name="phoneNumber"
-                            placeholder="This DropDown"
-                            value={formData.phoneNumber}
-                            onChange={handleChange}
-                            required
+
+                        {/* Description Textarea */}
+                        <textarea
+                            className="super-input-field h-[100px] md:h-[120px] w-full"
+                            placeholder="Description"
                         />
-                        <div className="flex gap-3">
-                            <img className="w-full h-[100px]" src="/upload/uploadblue.png" />
-                            <img className="w-full h-[100px]" src="/upload/uploadpurple.png" />
+
+                        {/* Game Selection */}
+                        <h1 className="text-lg md:text-xl tracking-wide">Select Game</h1>
+                        <select className="super-input-field">
+                            <option value="">Select an option</option>
+                            <option value="option1">Option 1</option>
+                            <option value="option2">Option 2</option>
+                            <option value="option3">Option 3</option>
+                            <option value="option4">Option 4</option>
+                        </select>
+
+                        {/* Image and Video Upload Section */}
+                        <div className="flex flex-col md:flex-row gap-4 w-full h-full">
+                            {/* Video Upload */}
+                            <label className="flex-1 cursor-pointer">
+                                <img className="w-full h-full object-contain" src="/upload/uploadblue.png" alt="Upload Blue" />
+                                <input type="file" className="hidden" accept="video/*" />
+                            </label>
+
+                            {/* Image Upload */}
+                            <label className="flex-1 cursor-pointer">
+                                <img className="w-full h-full object-contain" src="/upload/uploadpurple.png" alt="Upload Purple" />
+                                <input type="file" className="hidden" accept="image/*" />
+                            </label>
                         </div>
-                        <button type="submit" disabled={loading} className="submit-button">
-                            {loading ? 'Sending...👑' : 'Send To The Company CEO'}
+
+                        {/* Upload Button */}
+                        <button className="discord-button py-2 md:py-4 rounded-lg font-semibold text-lg md:text-xl mt-4">
+                            Upload
                         </button>
-                    </form>
+                    </div>
                 </div>
-                <div className="sambar">
-                    <img className="inner-sambar" src="/some.png" />
+
+                {/* Right Section (Preview) */}
+                <div className="w-full md:w-1/2 h-full bg-violet-500 rounded-xl flex justify-center items-center">
+                    <span className="text-xl md:text-2xl font-semibold">PREVIEW</span>
                 </div>
             </div>
         </div>
-    )
-}
 
-export default Site
+    </>
+}

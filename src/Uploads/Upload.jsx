@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import './IconUpload.css'
+import Bubbles from "./Bubbles"
 
 export default function Upload() {
 
@@ -23,14 +24,14 @@ export default function Upload() {
 
     }, [navigate])
 
-    return <div className="main-upload absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[120px] py-[40px]">
+    return <div className="main-upload z-50 absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[160px] py-20">
+        <Bubbles />
         <div className="upload-panel p-5 w-full h-full flex">
-            <div className="w-full flex flex-col gap-2 py-10 px-16 ">
+            <div className="w-full h-full flex flex-col gap-2 py-10 px-16 ">
                 <span className=" text-3xl font-semibold">Let's Upload Your Monster Content! ✨</span>
                 <span className=" text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
 
                 <div className="all-input-field flex flex-col gap-4 mt-4">
-                    <span className="text-xl tracking-wide text-gray-300 font-semibold">Enter Title For The Video</span>
                     <input
                      
                      className="super-input-field w-full"    
@@ -38,7 +39,6 @@ export default function Upload() {
 
                     />
 
-                    <span className="text-xl tracking-wide text-gray-300 font-semibold">Enter Description For The Video</span>
                     <textarea
                      
                      className="super-input-field h-[120px] w-full"    
@@ -48,7 +48,11 @@ export default function Upload() {
                     
                     <h1 className="text-xl tracking-wide">Select Game</h1>
                     <select className="super-input-field">
-                        <option></option>
+                        <option value="">Select an option</option> {/* Default placeholder option */}
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                        <option value="option4">Option 4</option>
                     </select>
 
                     <div className="flex gap-4 w-full h-full">
@@ -71,7 +75,9 @@ export default function Upload() {
                 </div>
 
             </div>
-            <img src="/some.png" className="w-[660px] rounded-2xl"></img>
+                <div className="w-[1130px] h-full bg-violet-500 rounded-xl flex justify-center items-center">
+                    <span className="text-2xl font-semibold">PREVIEW</span>
+                </div>
         </div>
     </div>
 }
