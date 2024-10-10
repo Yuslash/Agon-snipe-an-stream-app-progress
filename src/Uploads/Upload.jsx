@@ -57,7 +57,9 @@ export default function Upload() {
 
     useEffect(() => {
         const user = localStorage.getItem('username')
-        setUsername(user)
+        if(user) {
+            setUsername(user)
+        }
 
         const expectedToken = import.meta.env.VITE_TOKEN
         const localToken = localStorage.getItem('authToken')
@@ -89,18 +91,22 @@ export default function Upload() {
             return
         }
 
-        const formData = new FormData()
-        formData.append('title', title)
-        formData.append('description', description)
-        formData.append('username', username)
-        formData.append('imageFile', imageFile)
-        formData.append('game', selectedOption)
-        formData.append('videoUrl', videoUrl)
+        const formData = {
+            title,
+            description,
+            username,
+            imageFile, // Cloudinary URL
+            game: selectedOption,
+            videoUrl // Cloudinary URL
+        };
 
         const response = await fetch('http://localhost:3000/upload', {
             method: "POST",
-            body: formData,
-        })
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData),
+        });
 
         if (response.ok) {
             toast.success('Upload Successful!', {
@@ -194,63 +200,31 @@ export default function Upload() {
     }
 
     const handleImageUpload = async (event) => {
+
         const image = event.target.files[0]
         const formData = new FormData()
         formData.append("file", image)
         formData.append("upload_preset", "Just_Got_Here")
         formData.append("cloud_name", "dpxm4k7v5")
 
-        setImageUploading(true) // Set the image uploading state to true
-
         const xhr = new XMLHttpRequest()
         xhr.open("POST", "https://api.cloudinary.com/v1_1/dpxm4k7v5/image/upload")
 
-        // Track the upload progress for the image
         xhr.upload.onprogress = (event) => {
-            if (event.lengthComputable) {
-                const percentageComplete = Math.round((event.loaded * 100) / event.total)
-                setImageUploadingProgress(percentageComplete) // Update the image upload progress
-            }
+            const percentageComplete = Math.round((event.loaded * 100) / event.total)
+            setImageUploadingProgress(percentageComplete) // Track image upload progress
         }
 
         xhr.onload = () => {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText)
-                setImageFile(response.url) // Store the uploaded image URL
+                setImageFile(response.url) // Store only the Cloudinary URL
                 setImageUploadSuccess(true) // Mark image upload as successful
-                setImageUploading(false) // Stop the uploading state
-                setImageUploadingProgress(0) // Reset the upload progress after completion
-            } else {
-                toast.error('Image Upload Failed. Please try again.', {
-                    position: "top-center",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                    transition: Bounce,
-                })
                 setImageUploading(false)
                 setImageUploadingProgress(0)
+            } else {
+                toast.error('Image Upload Failed. Please try again.')
             }
-        }
-
-        xhr.onerror = () => {
-            toast.error('Image Upload Failed. Please try again.', {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce,
-            })
-            setImageUploading(false)
-            setImageUploadingProgress(0)
         }
 
         xhr.send(formData)
@@ -362,8 +336,6 @@ export default function Upload() {
                 <div className="w-[1130px] h-full bg-violet-500 rounded-xl flex justify-center items-center">
                     {imageUploadSuccess ? (
                         <img src={imageFile} className="w-full h-full rounded-[12px]" alt="Uploaded Image" />
-                    ) : imageFile ? (
-                        <img src={URL.createObjectURL(imageFile)} className="w-full h-full rounded-[12px]" alt="Preview" />
                     ) : (
                         <span className="text-2xl font-semibold">PREVIEW</span>
                     )}
