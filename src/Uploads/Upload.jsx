@@ -2,20 +2,24 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import './IconUpload.css'
 import Bubbles from "./Bubbles"
+import UploadAnimation from "../Animations/UploadAnimation"
+import { toast, ToastContainer, Bounce } from "react-toastify"
 
 export default function Upload() {
-
     const navigate = useNavigate()
 
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
-    const [username, setUsername ] = useState("")
+    const [username, setUsername] = useState("")
     const [imageFile, setImageFile] = useState(null)
     const [videoUrl, setVideoUrl] = useState("")
 
     const [searchTerm, setSearchTerm] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [selectedOption, setSelectedOption] = useState('')
+
+    const [uploadingProgress, setUploadingProgress] = useState(0)
+    const [uploadingVideo, setUploadingVideo] = useState(false)
 
     const options = [
         { value: 'cyberpunk2077', label: 'Cyberpunk 2077' },
@@ -35,7 +39,6 @@ export default function Upload() {
         { value: 'doomEternal', label: 'Doom Eternal' },
     ]
 
-
     const filteredOptions = options.filter(option =>
         option.label.toLowerCase().includes(searchTerm.toLowerCase())
     )
@@ -46,16 +49,11 @@ export default function Upload() {
     }
 
     useEffect(() => {
-
         const user = localStorage.getItem('username')
-
-        if(user) {
-            setUsername(user)
-        }
+        setUsername(user)
 
         const expectedToken = import.meta.env.VITE_TOKEN
         const localToken = localStorage.getItem('authToken')
-
         const expectedGuestToken = import.meta.env.VITE_GUEST_TOKEN
         const guestLocalToken = localStorage.getItem('guestToken')
 
@@ -63,127 +61,219 @@ export default function Upload() {
             (expectedToken && expectedToken !== localToken) &&
             (expectedGuestToken && expectedGuestToken !== guestLocalToken)
         ) {
-            navigate('/signup');
+            navigate('/signup')
         }
-
     }, [navigate])
 
-    const uploadData = async () => {
 
-        if(!title || !description || !imageFile) {
-            alert("all field is required")
+    const uploadData = async () => {
+        if (!title || !description || !imageFile || !selectedOption || !videoUrl) {
+            toast.warn('All Fields Are Required', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
             return
         }
 
         const formData = new FormData()
-        formData.append('title',title)
+        formData.append('title', title)
         formData.append('description', description)
-        formData.append('username',username)
+        formData.append('username', username)
         formData.append('imageFile', imageFile)
+        formData.append('game', selectedOption)
+        formData.append('videoUrl', videoUrl)
 
         const response = await fetch('http://localhost:3000/upload', {
             method: "POST",
             body: formData,
         })
 
-        if(response.ok) {
-            alert("upload Successully")
+        if (response.ok) {
+            toast.success('Upload Successful!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
             setUsername('')
             setTitle('')
             setDescription('')
             setImageFile(null)
+            setSelectedOption('')
+            setVideoUrl('')
+            setUploadingProgress(0)
+            setUploadingVideo(false)
         }
-
     }
 
-    return <div className="main-upload z-50 absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[160px] py-20">
-        <Bubbles />
-        <div className="upload-panel p-5 w-full h-full flex">
-            <div className="w-full h-full flex flex-col gap-2 py-10 px-16 ">
-                <span className=" text-3xl font-semibold">Let's Upload Your Monster Content! ✨</span>
-                <span className=" text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
+    const handleVideoUrl = async (event) => {
+        const video = event.target.files[0]
+        const formData = new FormData()
+        formData.append("file", video)
+        formData.append("upload_preset", "Just_Got_Here")
+        formData.append("cloud_name", "dpxm4k7v5")
 
-                <div className="all-input-field flex flex-col gap-4 mt-4">
-                    <input
-                     className="super-input-field w-full"    
-                    placeholder="Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    />
+        setUploadingVideo(true)
 
-                    <textarea
-                     className="super-input-field h-[120px] w-full"    
-                    placeholder="Description"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    />
-                    
-                    <h1 className="text-xl tracking-wide">Select Game</h1>
-                    {/* Custom searchable dropdown */}
-                    <div className="relative w-full">
+        const xhr = new XMLHttpRequest()
+        xhr.open("POST", "https://api.cloudinary.com/v1_1/dpxm4k7v5/video/upload")
+
+        xhr.upload.onprogress = (event) => {
+            if (event.lengthComputable) {
+                const percentageComplete = Math.round((event.loaded * 100) / event.total)
+                setUploadingProgress(percentageComplete)
+            }
+        }
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText)
+                setVideoUrl(response.url)
+                setUploadingVideo(false)
+                setUploadingProgress(0)
+            } else {
+                toast.error('Video Upload Failed. Please try again.', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce,
+                })
+                setUploadingVideo(false)
+                setUploadingProgress(0)
+            }
+        }
+
+        xhr.onerror = () => {
+            toast.error('Video Upload Failed. Please try again.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
+            setUploadingVideo(false)
+            setUploadingProgress(0)
+        }
+
+        xhr.send(formData)
+    }
+
+    if (uploadingVideo) {
+        return <UploadAnimation uploadingProgress={uploadingProgress} />
+    }
+
+    return (
+        <div className="main-upload z-50 absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[160px] py-20">
+            <Bubbles />
+            <ToastContainer />
+            <div className="upload-panel p-5 w-full h-full flex">
+                <div className="w-full h-full flex flex-col gap-2 py-10 px-16 ">
+                    <span className="text-3xl font-semibold">Let's Upload Your Monster Content! {username} ✨</span>
+                    <span className="text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
+
+                    <div className="all-input-field flex flex-col gap-4 mt-4">
                         <input
-                            type="text"
                             className="super-input-field w-full"
-                            placeholder="Search or select a game"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            onClick={() => setIsOpen(!isOpen)}
+                            placeholder="Title"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
                         />
-                        {isOpen && (
-                            <ul className="custom-dropdown absolute top-full left-0 right-0 bg-white text-black border mt-1 z-10">
-                                {filteredOptions.length ? (
-                                    filteredOptions.map((option) => (
-                                        <li
-                                            key={option.value}
-                                            className="p-2 cursor-pointer hover:bg-gray-200"
-                                            onClick={() => handleOptionClick(option)}
-                                        >
-                                            {option.label}
-                                        </li>
-                                    ))
-                                ) : (
-                                    <li className="p-2">No options found</li>
-                                )}
-                            </ul>
-                        )}
-                    </div>
 
-                    <div className="flex gap-4 w-full h-full">
-                        {/* Blue Image with File Upload */}
-                        <label className="flex-1 cursor-pointer">
-                            <img className="w-full h-full object-contain" src="/upload/uploadblue.png" alt="Upload Blue" />
+                        <textarea
+                            className="super-input-field h-[120px] w-full"
+                            placeholder="Description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+
+                        <h1 className="text-xl tracking-wide">Select Game</h1>
+                        <div className="relative w-full">
                             <input
-                            type="file" 
-                            className="hidden" 
-                            accept="video/*"    
+                                type="text"
+                                className="super-input-field w-full"
+                                placeholder="Search or select a game"
+                                value={selectedOption || searchTerm}
+                                onChange={(e) => {
+                                    setSearchTerm(e.target.value)
+                                    if (e.target.value !== '') {
+                                        setSelectedOption('')
+                                    }
+                                }}
+                                onClick={() => setIsOpen(!isOpen)}
                             />
-                        </label>
+                            {isOpen && (
+                                <ul className="custom-dropdown absolute top-full left-0 right-0 bg-white text-black border mt-1 z-10">
+                                    {filteredOptions.length ? (
+                                        filteredOptions.map((option) => (
+                                            <li
+                                                key={option.value}
+                                                className="p-2 cursor-pointer hover:bg-gray-200"
+                                                onClick={() => handleOptionClick(option)}
+                                            >
+                                                {option.label}
+                                            </li>
+                                        ))
+                                    ) : (
+                                        <li className="p-2">No options found</li>
+                                    )}
+                                </ul>
+                            )}
+                        </div>
 
-                        {/* Purple Image with File Upload */}
-                        <label className="flex-1 cursor-pointer">
-                            <img className="w-full h-full object-contain" src="/upload/uploadpurple.png" alt="Upload Purple" />
-                            <input 
-                            type="file" 
-                            className="hidden" 
-                            accept="image/*" 
-                            onChange={(e) => setImageFile(e.target.files[0])}    
-                            />
-                        </label>
+                        <div className="flex gap-4 w-full h-full">
+                            <label className="flex-1 cursor-pointer">
+                                <img className="w-full h-full object-contain" src="/upload/uploadblue.png" alt="Upload Blue" />
+                                <input
+                                    type="file"
+                                    className="hidden"
+                                    accept="video/*"
+                                    onChange={handleVideoUrl}
+                                />
+                            </label>
+
+                            <label className="flex-1 cursor-pointer">
+                                <img className="w-full h-full object-contain" src="/upload/uploadpurple.png" alt="Upload Purple" />
+                                <input
+                                    type="file"
+                                    className="hidden"
+                                    accept="image/*"
+                                    onChange={(e) => setImageFile(e.target.files[0])}
+                                />
+                            </label>
+                        </div>
+
+                        <button onClick={uploadData} className="discord-button py-4 rounded-lg font-semibold text-xl">Upload</button>
                     </div>
-
-                    <button onClick={uploadData} className="discord-button py-4 rounded-lg font-semibold text-xl">Upload</button>
-
-
                 </div>
-
-            </div>
                 <div className="w-[1130px] h-full bg-violet-500 rounded-xl flex justify-center items-center">
-                {imageFile ? (
-                    <img src={URL.createObjectURL(imageFile)} className="w-full h-full" alt="Preview" />
-                ) : (
-                    <span className="text-2xl font-semibold">PREVIEW</span>
-                )}
+                    {imageFile ? (
+                        <img src={URL.createObjectURL(imageFile)} className="w-full h-full rounded-[12px]" alt="Preview" />
+                    ) : (
+                        <span className="text-2xl font-semibold">PREVIEW</span>
+                    )}
                 </div>
+            </div>
         </div>
-    </div>
+    )
 }

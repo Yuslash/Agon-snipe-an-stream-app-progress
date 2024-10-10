@@ -255,12 +255,17 @@
     text-align: left;
 }
 
+.custom-dropdown {
+    background-color: rgba(255, 255, 255, 0.05);
+}
 
 .custom-dropdown li {
-    background-color: #612bf4;
+    background-color: #763AF5;
+    padding: 10px;
+    cursor: pointer;
     color: white;
 }
 .custom-dropdown li:hover {
-    background-color: #7a4df4;
+    background-color: #926df9;
     color: white;
 }
