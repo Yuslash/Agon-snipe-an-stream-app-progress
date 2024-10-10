@@ -254,3 +254,13 @@
     font-size: 16px;
     text-align: left;
 }
+
+
+.custom-dropdown li {
+    background-color: #612bf4;
+    color: white;
+}
+.custom-dropdown li:hover {
+    background-color: #7a4df4;
+    color: white;
+}

@@ -18,11 +18,23 @@ export default function Upload() {
     const [selectedOption, setSelectedOption] = useState('')
 
     const options = [
-        { value: 'option1', label: 'Option 1' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' },
-        { value: 'option4', label: 'Option 4' },
+        { value: 'cyberpunk2077', label: 'Cyberpunk 2077' },
+        { value: 'minecraft', label: 'Minecraft' },
+        { value: 'fortnite', label: 'Fortnite' },
+        { value: 'apexLegends', label: 'Apex Legends' },
+        { value: 'theWitcher3', label: 'The Witcher 3: Wild Hunt' },
+        { value: 'eldenRing', label: 'Elden Ring' },
+        { value: 'leagueOfLegends', label: 'League of Legends' },
+        { value: 'callOfDutyMW2', label: 'Call of Duty: Modern Warfare II' },
+        { value: 'redDeadRedemption2', label: 'Red Dead Redemption 2' },
+        { value: 'overwatch2', label: 'Overwatch 2' },
+        { value: 'valorant', label: 'Valorant' },
+        { value: 'haloInfinite', label: 'Halo Infinite' },
+        { value: 'pubg', label: 'PUBG: Battlegrounds' },
+        { value: 'gtaV', label: 'Grand Theft Auto V' },
+        { value: 'doomEternal', label: 'Doom Eternal' },
     ]
+
 
     const filteredOptions = options.filter(option =>
         option.label.toLowerCase().includes(searchTerm.toLowerCase())
@@ -118,7 +130,7 @@ export default function Upload() {
                             onClick={() => setIsOpen(!isOpen)}
                         />
                         {isOpen && (
-                            <ul className="absolute top-full left-0 right-0 bg-white text-black border mt-1 z-10">
+                            <ul className="custom-dropdown absolute top-full left-0 right-0 bg-white text-black border mt-1 z-10">
                                 {filteredOptions.length ? (
                                     filteredOptions.map((option) => (
                                         <li
