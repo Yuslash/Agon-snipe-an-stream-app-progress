@@ -4,6 +4,7 @@ import './IconUpload.css'
 import Bubbles from "./Bubbles"
 import UploadAnimation from "../Animations/UploadAnimation"
 import { toast, ToastContainer, Bounce } from "react-toastify"
+import ImageUploadAnimation from "../Animations/ImageUploadAnimation"
 
 export default function Upload() {
     const navigate = useNavigate()
@@ -20,6 +21,12 @@ export default function Upload() {
 
     const [uploadingProgress, setUploadingProgress] = useState(0)
     const [uploadingVideo, setUploadingVideo] = useState(false)
+
+    const [imageUploadSuccess, setImageUploadSuccess] = useState(false)
+    const [videoUploadSuccess, setVideoUploadSuccess] = useState(false)
+
+    const [imageUploadingProgress, setImageUploadingProgress] = useState(0)
+    const [imageUploading, setImageUploading] = useState(false)
 
     const options = [
         { value: 'cyberpunk2077', label: 'Cyberpunk 2077' },
@@ -115,6 +122,8 @@ export default function Upload() {
             setVideoUrl('')
             setUploadingProgress(0)
             setUploadingVideo(false)
+            setImageUploadSuccess(false) // Reset image upload success
+            setVideoUploadSuccess(false)
         }
     }
 
@@ -141,6 +150,7 @@ export default function Upload() {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText)
                 setVideoUrl(response.url)
+                setVideoUploadSuccess(true)
                 setUploadingVideo(false)
                 setUploadingProgress(0)
             } else {
@@ -182,6 +192,75 @@ export default function Upload() {
     if (uploadingVideo) {
         return <UploadAnimation uploadingProgress={uploadingProgress} />
     }
+
+    const handleImageUpload = async (event) => {
+        const image = event.target.files[0]
+        const formData = new FormData()
+        formData.append("file", image)
+        formData.append("upload_preset", "Just_Got_Here")
+        formData.append("cloud_name", "dpxm4k7v5")
+
+        setImageUploading(true) // Set the image uploading state to true
+
+        const xhr = new XMLHttpRequest()
+        xhr.open("POST", "https://api.cloudinary.com/v1_1/dpxm4k7v5/image/upload")
+
+        // Track the upload progress for the image
+        xhr.upload.onprogress = (event) => {
+            if (event.lengthComputable) {
+                const percentageComplete = Math.round((event.loaded * 100) / event.total)
+                setImageUploadingProgress(percentageComplete) // Update the image upload progress
+            }
+        }
+
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText)
+                setImageFile(response.url) // Store the uploaded image URL
+                setImageUploadSuccess(true) // Mark image upload as successful
+                setImageUploading(false) // Stop the uploading state
+                setImageUploadingProgress(0) // Reset the upload progress after completion
+            } else {
+                toast.error('Image Upload Failed. Please try again.', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                    transition: Bounce,
+                })
+                setImageUploading(false)
+                setImageUploadingProgress(0)
+            }
+        }
+
+        xhr.onerror = () => {
+            toast.error('Image Upload Failed. Please try again.', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            })
+            setImageUploading(false)
+            setImageUploadingProgress(0)
+        }
+
+        xhr.send(formData)
+    }
+
+
+    if(imageUploading) {
+        return <ImageUploadAnimation uploadingProgress={imageUploadingProgress} />
+    }
+
 
     return (
         <div className="main-upload z-50 absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[160px] py-20">
@@ -243,31 +322,47 @@ export default function Upload() {
 
                         <div className="flex gap-4 w-full h-full">
                             <label className="flex-1 cursor-pointer">
-                                <img className="w-full h-full object-contain" src="/upload/uploadblue.png" alt="Upload Blue" />
-                                <input
-                                    type="file"
-                                    className="hidden"
-                                    accept="video/*"
-                                    onChange={handleVideoUrl}
-                                />
+                                {videoUploadSuccess ? (
+                                    <img className="w-full h-full object-contain" src="/upload/uploadsuccess.png" alt="Upload Blue" />
+                                ) : (
+                                    <>
+                                        <img className="w-full h-full object-contain" src="/upload/uploadblue.png" alt="Upload Blue" />
+                                        <input
+                                            type="file"
+                                            className="hidden"
+                                            accept="video/*"
+                                            onChange={handleVideoUrl}  // Trigger video upload
+                                        />
+                                    </>
+                                )}
                             </label>
 
+
                             <label className="flex-1 cursor-pointer">
-                                <img className="w-full h-full object-contain" src="/upload/uploadpurple.png" alt="Upload Purple" />
-                                <input
-                                    type="file"
-                                    className="hidden"
-                                    accept="image/*"
-                                    onChange={(e) => setImageFile(e.target.files[0])}
-                                />
+                                {imageUploadSuccess ? (
+                                    <img className="w-full h-full object-contain" src='/upload/uploadsuccess.png' alt="Uploaded Image" />
+                                ) : (
+                                    <>
+                                        <img className="w-full h-full object-contain" src="/upload/uploadpurple.png" alt="Upload Purple" />
+                                        <input
+                                            type="file"
+                                            className="hidden"
+                                            accept="image/*"
+                                            onChange={handleImageUpload}
+                                        />
+                                    </>
+                                )}
                             </label>
+
                         </div>
 
                         <button onClick={uploadData} className="discord-button py-4 rounded-lg font-semibold text-xl">Upload</button>
                     </div>
                 </div>
                 <div className="w-[1130px] h-full bg-violet-500 rounded-xl flex justify-center items-center">
-                    {imageFile ? (
+                    {imageUploadSuccess ? (
+                        <img src={imageFile} className="w-full h-full rounded-[12px]" alt="Uploaded Image" />
+                    ) : imageFile ? (
                         <img src={URL.createObjectURL(imageFile)} className="w-full h-full rounded-[12px]" alt="Preview" />
                     ) : (
                         <span className="text-2xl font-semibold">PREVIEW</span>
