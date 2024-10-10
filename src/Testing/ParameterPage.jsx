@@ -20,12 +20,11 @@ export default function ParameterPage() {
 
     }, [])
 
-
     return <div className="text-white">
         <h1>Hello Parameteres</h1>
         {card ? (<>
             <h1>{card.title}</h1>
             <h1>{card.description}</h1>
         </>) : <p>Loading....</p>}
-    </div>
+    </div>  
 }

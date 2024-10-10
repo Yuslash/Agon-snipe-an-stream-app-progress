@@ -13,6 +13,26 @@ export default function Upload() {
     const [imageFile, setImageFile] = useState(null)
     const [videoUrl, setVideoUrl] = useState("")
 
+    const [searchTerm, setSearchTerm] = useState('')
+    const [isOpen, setIsOpen] = useState(false)
+    const [selectedOption, setSelectedOption] = useState('')
+
+    const options = [
+        { value: 'option1', label: 'Option 1' },
+        { value: 'option2', label: 'Option 2' },
+        { value: 'option3', label: 'Option 3' },
+        { value: 'option4', label: 'Option 4' },
+    ]
+
+    const filteredOptions = options.filter(option =>
+        option.label.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
+    const handleOptionClick = (option) => {
+        setSelectedOption(option.label)
+        setIsOpen(false)
+    }
+
     useEffect(() => {
 
         const user = localStorage.getItem('username')
@@ -87,13 +107,34 @@ export default function Upload() {
                     />
                     
                     <h1 className="text-xl tracking-wide">Select Game</h1>
-                    <select className="super-input-field">
-                        <option value="">Select an option</option> {/* Default placeholder option */}
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                        <option value="option4">Option 4</option>
-                    </select>
+                    {/* Custom searchable dropdown */}
+                    <div className="relative w-full">
+                        <input
+                            type="text"
+                            className="super-input-field w-full"
+                            placeholder="Search or select a game"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onClick={() => setIsOpen(!isOpen)}
+                        />
+                        {isOpen && (
+                            <ul className="absolute top-full left-0 right-0 bg-white text-black border mt-1 z-10">
+                                {filteredOptions.length ? (
+                                    filteredOptions.map((option) => (
+                                        <li
+                                            key={option.value}
+                                            className="p-2 cursor-pointer hover:bg-gray-200"
+                                            onClick={() => handleOptionClick(option)}
+                                        >
+                                            {option.label}
+                                        </li>
+                                    ))
+                                ) : (
+                                    <li className="p-2">No options found</li>
+                                )}
+                            </ul>
+                        )}
+                    </div>
 
                     <div className="flex gap-4 w-full h-full">
                         {/* Blue Image with File Upload */}
