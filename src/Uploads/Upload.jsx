@@ -207,6 +207,8 @@ export default function Upload() {
         formData.append("upload_preset", "Just_Got_Here")
         formData.append("cloud_name", "dpxm4k7v5")
 
+        setImageUploading(true);
+
         const xhr = new XMLHttpRequest()
         xhr.open("POST", "https://api.cloudinary.com/v1_1/dpxm4k7v5/image/upload")
 
