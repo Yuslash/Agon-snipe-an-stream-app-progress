@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './Profile.css'
 import { Link, useNavigate } from 'react-router-dom'
 import AnimationLoading from '../Animations/AnimationLoading'
+import ScaleUpGsap from './ScaleUpGsap'
 
 
 export default function ProfilePage() {
@@ -12,6 +13,7 @@ export default function ProfilePage() {
     const [ userData, setUserData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const bubbleSound1Ref = useRef(null)
+    const scaleVideoCard = useRef([])
 
     const fetchUserData = async (user) => {
 
@@ -25,11 +27,18 @@ export default function ProfilePage() {
             console.error('Failed to Fetch')
         } finally {
             setIsLoading(false)
+            scaleVideoCard.current.forEach(box => {
+                ScaleUpGsap(box)
+            }
+            )
         }
     }
 
     useEffect(() => 
     {
+
+        
+
         const user = localStorage.getItem('username')
         if(user) {
             setUsername(user)
@@ -155,8 +164,8 @@ export default function ProfilePage() {
                                 </div>
                                 <div className='main-uploads flex flex-wrap justify-center gap-y-4 gap-2 p-10 w-full]'>
                                     {/* Dyanimic Cards Starts */}
-                                    {userData.map(user => (
-                                        <Link onMouseEnter={bubblesound1} key={user.id} to={`/view/${user.id}`} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
+                                    {userData.map((user, index) => (
+                                        <Link ref={(el) => (scaleVideoCard.current[index] = el)} onMouseEnter={bubblesound1} key={user.id} to={`/view/${user.id}`} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
                                             <div className='relative w-full h-[220px]'>
                                                 <img className='user-image-profile w-full h-full object-cover' src={user.imageFile} alt='Profile' />
                                                 <img className='absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300' src='/profile/fastforward.png' alt='Fast Forward Icon' />

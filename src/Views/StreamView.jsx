@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import './Stream.css'
 import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
