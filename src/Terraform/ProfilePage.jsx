@@ -153,7 +153,7 @@ export default function ProfilePage() {
                                 <div className='upload-frame px-[70px] py-[30px]'>
                                     <span>YOUR UPLOAD'S</span>
                                 </div>
-                                <div className='main-uploads flex flex-wrap gap-y-4 gap-2 p-10 w-full]'>
+                                <div className='main-uploads flex flex-wrap justify-center gap-y-4 gap-2 p-10 w-full]'>
                                     {/* Dyanimic Cards Starts */}
                                     {userData.map(user => (
                                         <Link onMouseEnter={bubblesound1} key={user.id} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
