@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
 
@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 export default function ProfilePage() {
 
     const [ username, setUsername] = useState("")
+    const imageRef = useRef()
 
     useEffect(() => 
     {
@@ -15,10 +16,27 @@ export default function ProfilePage() {
             setUsername(user)
         }
 
+        const handleMouseMove = (e) => {
+            const x = (e.clientX / window.innerWidth) * 20
+            const y = (e.clientY / window.innerHeight) * 20
+
+            if (imageRef.current) {
+                imageRef.current.style.transform = `translate(${x}px, ${y}px)`
+            }
+
+        }
+
+        window.addEventListener('mousemove', handleMouseMove)
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove)
+        }
+
+
     }, [])
 
     return <>
-            <div className='profile-main'></div>
+            <div ref={imageRef} className='profile-main'></div>
             <div className='profile-container absolute top-0 left-0 w-full h-full'>
                 {/* Top nav bar stats */}
                     <div className='profile-top w-full flex justify-between py-5 px-10'>

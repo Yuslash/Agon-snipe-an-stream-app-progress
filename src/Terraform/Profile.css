@@ -67,7 +67,7 @@
     height: 140px;
     border-radius: 50px;
     background: radial-gradient(27.46% 27.46% at 50.03% 20%, rgba(60, 56, 107, 0.65) 0%, rgba(39, 37, 76, 0.65) 100%);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
     border-top: 5px solid #2F2E5E;
 }
 
