@@ -11,6 +11,7 @@ export default function ProfilePage() {
     const navigate = useNavigate()
     const [ userData, setUserData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const bubbleSound1Ref = useRef(null)
 
     const fetchUserData = async (user) => {
 
@@ -54,12 +55,27 @@ export default function ProfilePage() {
 
     }, [username])
 
+    useEffect(() => {
+
+        bubbleSound1Ref.current = new Audio('/HoverSounds/bubble1.mp3')
+
+        bubbleSound1Ref.current.preload = 'auto'
+
+    }, [])
+
     const toBack = () => {
         navigate('/init')
     }
 
     if(isLoading) {
         return <AnimationLoading />
+    }
+
+    const bubblesound1 = () => {
+        if (bubbleSound1Ref.current) {
+            bubbleSound1Ref.current.currentTime = 0
+            bubbleSound1Ref.current.play()
+        }
     }
 
     return <>
@@ -140,7 +156,7 @@ export default function ProfilePage() {
                                 <div className='main-uploads flex flex-wrap gap-y-4 gap-2 p-10 w-full]'>
                                     {/* Dyanimic Cards Starts */}
                                     {userData.map(user => (
-                                            <Link key={user.id} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
+                                        <Link onMouseEnter={bubblesound1} key={user.id} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
                                             <div className='relative w-full h-[220px]'>
                                                 <img className='user-image-profile w-full h-full object-cover' src={user.imageFile} alt='Profile' />
                                                 <img className='absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300' src='/profile/fastforward.png' alt='Fast Forward Icon' />
@@ -150,9 +166,9 @@ export default function ProfilePage() {
                                                     <div className='flex flex-col'>
                                                         <span>{user.title}</span>
                                                         <p>{username}</p>
-                                                    </div>
                                                 </div>
-                                            </Link>
+                                            </div>
+                                        </Link>
                                     ))}
                                     {/* Dyanimic Cards Ends */}
                                 </div>

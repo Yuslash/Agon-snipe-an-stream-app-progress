@@ -93,7 +93,7 @@ export default function LoginPage()
                 theme: "colored",
                 transition: Bounce,
                 onClose: () => {
-                    navigate('/upload')
+                    navigate('/profile')
                 }
             })
 
