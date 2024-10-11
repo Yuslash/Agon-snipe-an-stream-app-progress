@@ -143,6 +143,9 @@ export default function SignUpPage() {
         const token = import.meta.env.VITE_GUEST_TOKEN
 
         localStorage.setItem('guestToken', token)
+        localStorage.setItem('username', guestName)
+
+        localStorage.removeItem('authToken')
 
         navigate('/upload')
     }
