@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import './Profile.css'
 import { Link, useNavigate } from 'react-router-dom'
+import AnimationLoading from '../Animations/AnimationLoading'
 
 
 export default function ProfilePage() {
@@ -8,13 +9,30 @@ export default function ProfilePage() {
     const [ username, setUsername] = useState("")
     const imageRef = useRef()
     const navigate = useNavigate()
+    const [ userData, setUserData] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+
+    const fetchUserData = async (user) => {
+
+        try {
+
+            const response = await fetch(`http://localhost:3000/presonaldata?username=${user}`)
+            const data = await response.json()
+            setUserData(data)
+
+        } catch (error) {
+            console.error('Failed to Fetch')
+        } finally {
+            setIsLoading(false)
+        }
+    }
 
     useEffect(() => 
     {
-
         const user = localStorage.getItem('username')
         if(user) {
             setUsername(user)
+            fetchUserData(user)
         }
 
         const handleMouseMove = (e) => {
@@ -34,10 +52,14 @@ export default function ProfilePage() {
         }
 
 
-    }, [])
+    }, [username])
 
     const toBack = () => {
         navigate('/init')
+    }
+
+    if(isLoading) {
+        return <AnimationLoading />
     }
 
     return <>
@@ -115,18 +137,23 @@ export default function ProfilePage() {
                                 <div className='upload-frame px-[70px] py-[30px]'>
                                     <span>YOUR UPLOAD'S</span>
                                 </div>
-                                <div className='main-uploads flex gap-2 p-10 w-full]'>
+                                <div className='main-uploads flex flex-wrap gap-y-4 gap-2 p-10 w-full]'>
                                     {/* Dyanimic Cards Starts */}
-                                    <Link className='profile-video-card w-[404px] flex flex-col gap-4 p-4 '>
-                                        <img className='h-[220px] object-cover' src='/background/3.jpg' />
-                                        <div className='ti-di flex gap-4'>
-                                        <img src='/profile/eclipse.png' />
-                                            <div className='flex flex-col'>
-                                                <span>Title of the weak goes to</span>
-                                                <p>{username}</p>
+                                    {userData.map(user => (
+                                            <Link key={user.id} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
+                                            <div className='relative w-full h-[220px]'>
+                                                <img className='user-image-profile w-full h-full object-cover' src={user.imageFile} alt='Profile' />
+                                                <img className='absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300' src='/profile/fastforward.png' alt='Fast Forward Icon' />
                                             </div>
-                                        </div>
-                                    </Link>
+                                                <div className='ti-di flex gap-4'>
+                                                    <img src='/profile/eclipse.png' />
+                                                    <div className='flex flex-col'>
+                                                        <span>{user.title}</span>
+                                                        <p>{username}</p>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                    ))}
                                     {/* Dyanimic Cards Ends */}
                                 </div>
                             </div>

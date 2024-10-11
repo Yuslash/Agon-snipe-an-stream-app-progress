@@ -117,8 +117,27 @@
     background: rgba(100, 100, 255, 0.26);
 }
 
+.profile-video-card:hover 
+{
+    width: 404px;
+    background-color:rgba(40, 40, 94, 0.26) ;
+    box-shadow: 0px 4px 10.6px 0px rgba(83, 35, 255, 0.86);
+    border: 1px solid #6E4DFF;
+}
+
+
 .profile-video-card img {
     border-radius: 20px;
+}
+
+.user-image-profile:hover {
+    height: 222px;
+    filter: brightness(0.6);
+}
+
+.profile-video-card:hover img:nth-child(2) {
+    opacity: 1;
+    /* Makes the fast-forward icon visible */
 }
 
 .main-uploads {
@@ -159,3 +178,4 @@
     font-weight: 600;
     line-height: normal;
 }
+
