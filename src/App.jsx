@@ -13,6 +13,7 @@ import Upload from "./Uploads/Upload.jsx"
 import AlertApp from "./Delta/Alertapp.jsx"
 import Site from "./Uploads/Site.jsx"
 import ProfilePage from "./Terraform/ProfilePage.jsx"
+import StreamView from "./Views/StreamView.jsx"
 
 
 export default function App()
@@ -38,7 +39,9 @@ export default function App()
           <Route path="/upload" element={<Upload /> } />
           <Route path="/site" element={<Site />} /> 
 
-          <Route path="/profile" element={<ProfilePage />} /> 
+          <Route path="/profile" element={<ProfilePage />} />
+
+          <Route path="/view/:id" element={<StreamView />} /> 
         </Routes>
       </BrowserRouter>      
   </>
