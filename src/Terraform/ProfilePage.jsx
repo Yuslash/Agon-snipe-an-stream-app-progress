@@ -116,6 +116,7 @@ export default function ProfilePage() {
                                     <span>YOUR UPLOAD'S</span>
                                 </div>
                                 <div className='main-uploads flex gap-2 p-10 w-full]'>
+                                    {/* Dyanimic Cards Starts */}
                                     <Link className='profile-video-card w-[404px] flex flex-col gap-4 p-4 '>
                                         <img className='h-[220px] object-cover' src='/background/3.jpg' />
                                         <div className='ti-di flex gap-4'>
@@ -126,6 +127,7 @@ export default function ProfilePage() {
                                             </div>
                                         </div>
                                     </Link>
+                                    {/* Dyanimic Cards Ends */}
                                 </div>
                             </div>
                         </div>
