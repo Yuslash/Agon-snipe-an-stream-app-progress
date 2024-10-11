@@ -156,7 +156,7 @@ export default function ProfilePage() {
                                 <div className='main-uploads flex flex-wrap justify-center gap-y-4 gap-2 p-10 w-full]'>
                                     {/* Dyanimic Cards Starts */}
                                     {userData.map(user => (
-                                        <Link onMouseEnter={bubblesound1} key={user.id} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
+                                        <Link onMouseEnter={bubblesound1} key={user.id} to={`/view/${user.id}`} className='profile-video-card w-[403px] flex flex-col gap-4 p-4 '>
                                             <div className='relative w-full h-[220px]'>
                                                 <img className='user-image-profile w-full h-full object-cover' src={user.imageFile} alt='Profile' />
                                                 <img className='absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300' src='/profile/fastforward.png' alt='Fast Forward Icon' />
