@@ -15,6 +15,16 @@ export default function StreamView() {
 
     const users = userData.find((c) => c.id === parseInt(id))
 
+    const updateViews = async () => {
+        if (users) {
+            await fetch(`http://localhost:3000/updateViews/${users.id}`, {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username })
+            })
+        }
+    }
+
     const fetchUserData = async () => {
         try {
 
@@ -36,11 +46,12 @@ export default function StreamView() {
 
             setUsername(user)
             fetchUserData()
-
         }
 
+        updateViews()
 
-    }, [])
+
+    }, [users])
 
     if(isLoading) {
         return <AnimationLoading />
@@ -70,6 +81,9 @@ export default function StreamView() {
             navi()
         }
     }
+
+    
+
 
     return <>
 
