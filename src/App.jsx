@@ -12,6 +12,7 @@ import ParameterPage from "./Testing/ParameterPage.jsx"
 import Upload from "./Uploads/Upload.jsx"
 import AlertApp from "./Delta/Alertapp.jsx"
 import Site from "./Uploads/Site.jsx"
+import ProfilePage from "./Terraform/ProfilePage.jsx"
 
 
 export default function App()
@@ -36,6 +37,8 @@ export default function App()
 
           <Route path="/upload" element={<Upload /> } />
           <Route path="/site" element={<Site />} /> 
+
+          <Route path="/profile" element={<ProfilePage />} /> 
         </Routes>
       </BrowserRouter>      
   </>

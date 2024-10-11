@@ -1,0 +1,86 @@
+.profile-main {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/background/4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+.profile-container {
+    background-color: #0465f72a;
+    z-index: 1;
+
+}
+
+.discord-button {
+    border-radius: 10px;
+    border: 1px solid #786CFF;
+    background: radial-gradient(85.17% 85.29% at 50.15% 14.77%, #7E73FD 0%, #5D50FF 100%);
+}
+
+.discord-button span {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile-username {
+    color: #FFF;
+    text-align: right;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.profile-id {
+    color: #7E73FD;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.image-bar 
+{
+    display: flex;
+    position: relative;
+    top: -30px;
+    width: 100%;
+    height: 140px;
+    border-radius: 50px;
+    background: radial-gradient(27.46% 27.46% at 50.03% 20%, rgba(60, 56, 107, 0.65) 0%, rgba(39, 37, 76, 0.65) 100%);
+    backdrop-filter: blur(20px);
+    border-top: 5px solid #2F2E5E;
+}
+
+.upload-frame {
+    border-radius: 30px;
+    background: rgba(26, 27, 78, 0.47);
+}
+
+.upload-panel span {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.upload-frame {
+    border-bottom: 3px solid #3D3B6A;
+    background: #222149;
+}

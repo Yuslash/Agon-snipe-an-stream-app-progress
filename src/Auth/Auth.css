@@ -165,9 +165,9 @@ body {
     line-height: normal;
 }
 
-.top-navbar 
+.profile-top 
 {
-    background-color: #38386E;
+    background: #39396F;
 }
 
 .agon-head {
@@ -214,3 +214,4 @@ body {
     font-weight: 600;
     line-height: normal;
 }
+
