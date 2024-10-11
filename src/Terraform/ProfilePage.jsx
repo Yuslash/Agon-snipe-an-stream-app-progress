@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import './Profile.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function ProfilePage() {
 
     const [ username, setUsername] = useState("")
     const imageRef = useRef()
+    const navigate = useNavigate()
 
     useEffect(() => 
     {
@@ -35,12 +36,16 @@ export default function ProfilePage() {
 
     }, [])
 
+    const toBack = () => {
+        navigate('/init')
+    }
+
     return <>
             <div ref={imageRef} className='profile-main'></div>
             <div className='profile-container absolute top-0 left-0 w-full h-full'>
                 {/* Top nav bar stats */}
                     <div className='profile-top w-full flex justify-between py-5 px-10'>
-                        <button className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>
+                        <button onClick={toBack} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>
 
                         <div className='flex gap-3'>
                             <div className='flex flex-col justify-center items-end'>
@@ -106,7 +111,7 @@ export default function ProfilePage() {
                         {/* Image bar Ends*/}
 
                             </div>
-                            <div className='upload-panel w-full'>
+                            <div className='upload-panel2 w-full'>
                                 <div className='upload-frame px-[70px] py-[30px]'>
                                     <span>YOUR UPLOAD'S</span>
                                 </div>

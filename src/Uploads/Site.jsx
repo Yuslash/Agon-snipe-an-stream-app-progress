@@ -7,7 +7,7 @@ export default function Site() {
                 {/* Left Section (Form) */}
                 <div className="w-full md:w-1/2 h-full flex flex-col gap-2 py-10 px-4 md:px-16">
                     <span className="text-2xl md:text-3xl font-semibold">Let's Upload Your Monster Content! ✨</span>
-                    <span className="text-xs md:text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
+                    <span className="text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
 
                     <div className="all-input-field flex flex-col gap-4 mt-4">
                         {/* Title Input */}

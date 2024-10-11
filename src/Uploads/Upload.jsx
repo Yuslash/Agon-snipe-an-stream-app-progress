@@ -245,7 +245,7 @@ export default function Upload() {
             <div className="upload-panel p-5 w-full h-full flex">
                 <div className="w-full h-full flex flex-col gap-2 py-10 px-16 ">
                     <span className="text-3xl font-semibold">Let's Upload Your Monster Content! {username} ✨</span>
-                    <span className="text-sm font-normal">All fields are Required and Select both Images and Video to Upload</span>
+                    <span>All fields are Required and Select both Images and Video to Upload</span>
 
                     <div className="all-input-field flex flex-col gap-4 mt-4">
                         <input
