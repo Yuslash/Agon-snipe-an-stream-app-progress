@@ -87,11 +87,15 @@ export default function StreamView() {
                             <p className='view-count text-purple-200'>Views: {users.views}</p>
                         </div>
 
-                        <div className='w-full px-10'>
-                            <Link to={'/profile'} className='mt-5 flex justify-end items-center gap-2'>
-                                <span className='text-xl text-white font-semibold'>{username}</span>
+                        <div className='w-full px-10 flex flex-col items-end'>
+                            <Link to={'/profile'} className='mt-5 flex p-2 items-center gap-2'>
                                 <img src='/profile/eclipse.png' />
+                                <span className='text-xl text-white font-semibold'>{username}</span>
                             </Link>
+                            <div className=' mt-5'>
+                                <button className='p-4 bg-red-800 font-semibold rounded-full border border-red-800 hover:bg-red-700 hover:border-non'>Delete This Video</button>                                
+                            </div>
+
                         </div>
 
                     </div>
