@@ -50,6 +50,27 @@ export default function StreamView() {
         navigate('/init')
     }
 
+    const navi = () => {
+        navigate('/profile')
+    }
+
+    const deleteVideo = async () => {
+        
+        const confirmDelete = window.confirm('Are You sure You Want to delete this video')
+
+        if(confirmDelete) {
+            await fetch(`http://localhost:3000/view/${users.id}`, {
+                method: "DELETE",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username })
+            })
+            alert("This Video is Deleted")
+            navi()
+        }
+    }
+
     return <>
 
         
@@ -93,7 +114,7 @@ export default function StreamView() {
                                 <span className='text-xl text-white font-semibold'>{username}</span>
                             </Link>
                             <div className=' mt-5'>
-                                <button className='p-4 bg-red-800 font-semibold rounded-full border border-red-800 hover:bg-red-700 hover:border-non'>Delete This Video</button>                                
+                                <button onClick={deleteVideo} className='p-4 bg-red-800 font-semibold rounded-full border border-red-800 hover:bg-red-700 hover:border-non'>Delete This Video</button>                                
                             </div>
 
                         </div>
