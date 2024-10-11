@@ -59,7 +59,52 @@ export default function ProfilePage() {
                                 <div className='px-5'>
                                     <img className='h-[430px] rounded-3xl w-full object-cover' src='/background/2.jpg' />
                                 </div>
-                                <div className='image-bar'></div>
+                        
+                        {/* Image bar starts */}
+                                <div className='image-bar flex items-center justify-between px-4'>
+                                    
+                                    {/* three box starts  */}
+                                     <div className='total-detail text-center w-full flex'>
+                                        <div className='count-detail flex flex-col items-center gap-3 px-10'>
+                                            <span>Total Videos</span>
+                                            <p>1956</p>
+                                        </div>
+                                        <div className='count-detail flex flex-col items-center gap-3 px-10'>
+                                            <span>Videos Views</span>
+                                            <p>237</p>
+                                        </div>
+                                        <div className='count-detail flex flex-col items-center gap-3 px-10'>
+                                            <span>Total Videos</span>
+                                            <p>1956</p>
+                                        </div>
+                                     </div>   
+                                    {/* three box ends  */}
+
+                                {/* Profile with Username Starts */}
+                                     <div className='image-bar-profile w-full'>
+                                        <div className='flex flex-col items-center relative top-[-70px] gap-4'>
+                                            <img className='' src='/profile/imagebarprofile.png' />
+                                            <span>{username}</span>
+                                        </div>
+                                     </div>
+                                {/* Profile with Username Ends */}
+
+                                {/* Just Fill up things starts */}
+                                    <div className='total-detail w-full text-center flex items-center gap-6'>
+                                        <div className='count-detail  w-full flex flex-col items-center gap-3 px-10'>
+                                            <span>Total Videos</span>
+                                            <p>1956</p>
+                                        </div>
+                                        <div className=' flex gap-4 w-full justify-center'>
+                                            <button className='discord-button p-3'><img src='/profile/Discord.png' /></button>
+                                            <button className='discord-button p-3'><img src='/profile/Discord.png' /></button>
+                                        </div>
+                                     </div>
+                                {/* Just Fill up things Ends */}
+
+                                </div>
+                        {/* Image bar Ends*/}
+
                             </div>
                             <div className='upload-panel w-full'>
                                 <div className='upload-frame px-[70px] py-[30px]'>
@@ -72,7 +117,7 @@ export default function ProfilePage() {
                                         <img src='/profile/eclipse.png' />
                                             <div className='flex flex-col'>
                                                 <span>Title of the weak goes to</span>
-                                                <p>Desiption at peak</p>
+                                                <p>{username}</p>
                                             </div>
                                         </div>
                                     </Link>
