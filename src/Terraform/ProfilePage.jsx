@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Profile.css'
+import { Link } from 'react-router-dom'
 
 
 export default function ProfilePage() {
@@ -45,6 +46,18 @@ export default function ProfilePage() {
                             <div className='upload-panel w-full'>
                                 <div className='upload-frame px-[70px] py-[30px]'>
                                     <span>YOUR UPLOAD'S</span>
+                                </div>
+                                <div className='main-uploads flex gap-2 p-10 w-full]'>
+                                    <Link className='profile-video-card w-[404px] flex flex-col gap-4 p-4 '>
+                                        <img className='h-[220px] object-cover' src='/background/3.jpg' />
+                                        <div className='ti-di flex gap-4'>
+                                        <img src='/profile/eclipse.png' />
+                                            <div className='flex flex-col'>
+                                                <span>Title of the weak goes to</span>
+                                                <p>Desiption at peak</p>
+                                            </div>
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

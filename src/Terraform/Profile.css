@@ -16,7 +16,12 @@
 .profile-container {
     background-color: #0465f72a;
     z-index: 1;
+    overflow-y: auto;
 
+}
+
+.profile-container::-webkit-scrollbar {
+    display: none;
 }
 
 .discord-button {
@@ -69,7 +74,10 @@
 .upload-frame {
     border-radius: 30px;
     background: rgba(26, 27, 78, 0.47);
+    
 }
+
+
 
 .upload-panel span {
     color: #FFF;
@@ -83,4 +91,38 @@
 .upload-frame {
     border-bottom: 3px solid #3D3B6A;
     background: #222149;
+}
+
+.ti-di span {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.ti-di p {
+    color: #606062;
+    font-family: Poppins;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile-video-card
+{
+    border-radius: 20px;
+    background: rgba(100, 100, 255, 0.26);
+}
+
+.profile-video-card img {
+    border-radius: 20px;
+}
+
+.main-uploads {
+    border-radius: 30px;
+    background: rgba(26, 27, 78, 0.47);
+    backdrop-filter: blur(20px);
 }
