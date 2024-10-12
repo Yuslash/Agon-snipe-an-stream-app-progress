@@ -147,7 +147,7 @@ export default function SignUpPage() {
 
         localStorage.removeItem('authToken')
 
-        navigate('/upload')
+        navigate('/main')
     }
 
 
