@@ -26,6 +26,7 @@ export default function MainStreamView() {
     return <>
         <div className="absolute flex top-0 left-0 w-full h-full bg-orange-300">
             
+            {/* Mainstream SideNavbar Starts */}
             <div className={`mainstream-side-nav ${isCollapsed ? 'collapsed' : ''}`}>
                 <div onClick={handleCollpase} className='logo-text w-full cursor-pointer justify-center items-center flex gap-[10px]'>
                     <img className={` transition-transform duration-300 ${isCollapsed ? 'rotate-0 p-4 bg-gray-200 rounded-2xl' : 'rotate-180 '}`} src='/mainstream/logo.png'  />
@@ -45,8 +46,27 @@ export default function MainStreamView() {
                     
                 </div>
             </div>
+            {/* Mainstream SideNavbar Ends */}
 
-            <div className='bg-purple-500 w-full h-full'></div>
+        {/* Mainstream Main ParentElement Starts */}
+            <div className='bg-purple-500 flex flex-col w-full h-full'>
+                
+                {/* Mainstream topnavbar Starts */}
+                <div className='mainstream-topnavbar w-full p-10'>
+                    <div className=''></div>
+                </div>
+                {/* Mainstream topnavbar Ends */}
+
+                
+                {/* Mainstream main body Starts */}
+                <div className='mainstream-mainbody w-full h-full'>
+
+
+                </div>
+                {/* Mainstream main body Ends */}
+            
+            </div>
+        {/* Mainstream Main ParentElement Ends */}
         </div>
     </>
 }

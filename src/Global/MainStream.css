@@ -76,3 +76,12 @@
 img {
     transition: transform 0.3s ease-in-out;
 }
+
+.mainstream-topnavbar {
+    background: #111;
+    border-bottom: 2px solid #303030;
+}
+
+.mainstream-mainbody {
+    background: #111;
+}
