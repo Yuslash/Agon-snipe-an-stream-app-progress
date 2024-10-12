@@ -14,6 +14,7 @@ import AlertApp from "./Delta/Alertapp.jsx"
 import Site from "./Uploads/Site.jsx"
 import ProfilePage from "./Terraform/ProfilePage.jsx"
 import StreamView from "./Views/StreamView.jsx"
+import MainStreamView from "./Global/MainStreamView.jsx"
 
 
 export default function App()
@@ -42,6 +43,8 @@ export default function App()
           <Route path="/profile" element={<ProfilePage />} />
 
           <Route path="/view/:id" element={<StreamView />} /> 
+
+          <Route path="/main" element={<MainStreamView />} />
         </Routes>
       </BrowserRouter>      
   </>

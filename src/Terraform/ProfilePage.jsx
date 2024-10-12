@@ -14,6 +14,7 @@ export default function ProfilePage() {
     const [isLoading, setIsLoading] = useState(true)
     const bubbleSound1Ref = useRef(null)
     const scaleVideoCard = useRef([])
+    const triggerElement = useRef()
 
     const fetchUserData = async (user) => {
 
@@ -27,11 +28,10 @@ export default function ProfilePage() {
             console.error('Failed to Fetch')
         } finally {
             setIsLoading(false)
-            scaleVideoCard.current.forEach(box => {
-                ScaleUpGsap(box)
+                scaleVideoCard.current.forEach(box => {
+                    if(box) ScaleUpGsap(box)
+                })
             }
-            )
-        }
     }
 
     useEffect(() => 
@@ -159,7 +159,7 @@ export default function ProfilePage() {
 
                             </div>
                             <div className='upload-panel2 w-full'>
-                                <div className='upload-frame px-[70px] py-[30px]'>
+                                <div ref={triggerElement} className='upload-frame px-[70px] py-[30px]'>
                                     <span>YOUR UPLOAD'S</span>
                                 </div>
                                 <div className='main-uploads flex flex-wrap justify-center gap-y-4 gap-2 p-10 w-full]'>

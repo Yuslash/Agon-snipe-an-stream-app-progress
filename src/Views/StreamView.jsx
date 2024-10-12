@@ -128,7 +128,7 @@ export default function StreamView() {
                                 <span className='text-xl text-white font-semibold'>{username}</span>
                             </Link>
                             <div className=' mt-5'>
-                                <button onClick={deleteVideo} className='p-4 bg-red-800 font-semibold rounded-full border border-red-800 hover:bg-red-700 hover:border-non'>Delete This Video</button>                                
+                                <button onClick={deleteVideo} className='p-4 bg-red-500 font-semibold rounded-full border text-white border-red-500 hover:bg-red-700 hover:border-non'>Delete This Video</button>                                
                             </div>
 
                         </div>
