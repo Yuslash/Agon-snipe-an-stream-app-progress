@@ -28,7 +28,7 @@ export default function MainStreamView() {
             
             <div className={`mainstream-side-nav ${isCollapsed ? 'collapsed' : ''}`}>
                 <div onClick={handleCollpase} className='logo-text w-full cursor-pointer justify-center items-center flex gap-[10px]'>
-                    <img src='/mainstream/logo.png'  />
+                    <img className={` transition-transform duration-300 ${isCollapsed ? 'rotate-0 p-4 bg-gray-200 rounded-2xl' : 'rotate-180 '}`} src='/mainstream/logo.png'  />
                     {!isCollapsed && <span>AGON SNIPE</span>}
                 </div>
                 <div className='mainstream-sidenav-content w-full flex flex-col gap-[30px] '>
