@@ -30,7 +30,7 @@
 .mainstream-sidenavs:hover {
 
     border-radius: 15px;
-    border: 1px solid #A069FF;
+    border: 1px solid #5d00ff;
     background: #6846EC;
 }
 
@@ -84,4 +84,34 @@ img {
 
 .mainstream-mainbody {
     background: #111;
+}
+
+.bell-icon {
+    border-radius: 10px;
+    background: #161623;
+}
+
+.mainstream-searchbar {
+    background: #161623;
+    padding: 18px 30px;
+    border-radius: 10px;
+}
+
+.mainstream-searchbar span {
+    color: #979797;
+    font-family: 'poppins';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mainstream-profile span 
+{
+    color: #FFF;
+    font-family: 'poppins';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
 }

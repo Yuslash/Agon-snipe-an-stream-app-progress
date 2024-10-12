@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './MainStream.css'
+import { Link } from 'react-router-dom'
 
 
 export default function MainStreamView() {
@@ -29,7 +30,7 @@ export default function MainStreamView() {
             {/* Mainstream SideNavbar Starts */}
             <div className={`mainstream-side-nav ${isCollapsed ? 'collapsed' : ''}`}>
                 <div onClick={handleCollpase} className='logo-text w-full cursor-pointer justify-center items-center flex gap-[10px]'>
-                    <img className={` transition-transform duration-300 ${isCollapsed ? 'rotate-0 p-4 bg-gray-200 rounded-2xl' : 'rotate-180 '}`} src='/mainstream/logo.png'  />
+                    <img className={` transition-transform duration-300 ${isCollapsed ? 'transition-transform duration-300 rotate-0 p-4 bg-gray-200 rounded-2xl' : 'transition-transform duration-300 rotate-180 '}`} src='/mainstream/logo.png'  />
                     {!isCollapsed && <span>AGON SNIPE</span>}
                 </div>
                 <div className='mainstream-sidenav-content w-full flex flex-col gap-[30px] '>
@@ -52,8 +53,20 @@ export default function MainStreamView() {
             <div className='bg-purple-500 flex flex-col w-full h-full'>
                 
                 {/* Mainstream topnavbar Starts */}
-                <div className='mainstream-topnavbar w-full p-10'>
-                    <div className=''></div>
+                <div className='mainstream-topnavbar flex justify-between items-center w-full p-10'>
+                    <div className='flex gap-[10px] w-full'>
+                        <div className='mainstream-searchbar flex w-full items-center gap-5'>
+                            <img src='/mainstream/search.png' />
+                            <span>Search Stream X</span>
+                        </div>
+                        <div className='bell-icon flex items-center py-[18px] px-[20px]'>
+                            <img src='/mainstream/Bell.png' />
+                        </div>
+                    </div>
+                    <Link to={'/profile'} className='mainstream-profile flex items-center px-10 gap-5 '>
+                        <img src='mainstream/profile.png' />
+                        <span className='text-nowrap w-full h-full rounded-full'>Your Username</span>
+                    </Link>
                 </div>
                 {/* Mainstream topnavbar Ends */}
 
