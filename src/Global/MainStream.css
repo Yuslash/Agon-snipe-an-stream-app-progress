@@ -1,0 +1,74 @@
+.mainstream-side-nav {
+    background: #161623;
+}
+
+.logo-text span {
+    color: #FFF;
+    text-align: center;
+    font-family: Oxanium;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.mainstream-sidenavs {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+.mainstream-sidenavs span {
+    color: #616162;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mainstream-sidenavs:hover {
+
+    border-radius: 15px;
+    border: 1px solid #A069FF;
+    background: #6846EC;
+}
+
+.mainstream-sidenavs.active,
+.mainstream-sidenavs.active:hover span {
+    border-radius: 15px;
+    background: #6846EC;
+}
+
+.mainstream-sidenavs.active span {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mainstream-sidenavs:hover span {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mainstream-side-nav{
+    width: 350px;
+    height: 100vh;
+    padding: 80px 40px;
+    transition: width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 120px;
+}
+
+
+.mainstream-side-nav.collapsed {
+    width: 150px;
+}
