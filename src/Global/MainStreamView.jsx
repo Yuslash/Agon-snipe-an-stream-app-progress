@@ -36,9 +36,9 @@ export default function MainStreamView() {
                     {menuItems.map(item =>(
                         <div 
                         key={item.id} 
-                        className={`mainstream-sidenavs flex w-full items-center gap-[28px] px-[30px] py-[20px] ${activeItems === item.name ? 'active': ''} `} 
+                            className={`mainstream-sidenavs ${isCollapsed ? 'flex justify-center p-4' : 'flex w-full items-center gap-[28px] px-[30px] py-[20px]'} ${activeItems === item.name ? 'active': ''} `} 
                         onClick={() => handleClick(item.name)}>
-                            <img className={`transition-transform duration-300 ${isCollapsed ? 'scale-[4]': 'scale-[1]'}`} src={item.icon} alt={item.name} />
+                            <img className={`transition-transform duration-300 ${isCollapsed ? 'scale-100': 'scale-100'}`} src={item.icon} alt={item.name} />
                             {!isCollapsed && <span className='w-full h-full flex items-end border-none'>{item.name}</span>}
                         </div>
                     ))}

@@ -72,3 +72,7 @@
 .mainstream-side-nav.collapsed {
     width: 150px;
 }
+
+img {
+    transition: transform 0.3s ease-in-out;
+}
