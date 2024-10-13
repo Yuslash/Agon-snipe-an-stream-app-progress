@@ -115,3 +115,34 @@ img {
     font-weight: 600;
     line-height: normal;
 }
+.popular-header span 
+{
+    color: #FFF;
+    font-family: 'poppins';
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+
+
+.popular-header p {
+    color: #6745EC;
+    font-family: 'poppins';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.popular-card {
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    
+}
+
+.popular-card::-webkit-scrollbar {
+    display: none;
+}

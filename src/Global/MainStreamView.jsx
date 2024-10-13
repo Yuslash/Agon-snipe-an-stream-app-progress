@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import './MainStream.css'
 import { Link } from 'react-router-dom'
 
@@ -7,6 +7,13 @@ export default function MainStreamView() {
 
     const [activeItems, setActiveItems ] = useState('Home')
     const [isCollapsed, setIsCollapsed ] = useState(false)
+    const scrollRef = useRef(null)
+
+    const handleHorizontalScroll = (e) => {
+        if(scrollRef.current) {
+            scrollRef.current.scrollLeft += e.deltaY
+        }
+    }
 
     const menuItems = [
         { id: 1, name: 'Home', icon: '/mainstream/home.png' },
@@ -25,7 +32,7 @@ export default function MainStreamView() {
     }
 
     return <>
-        <div className="absolute flex top-0 left-0 w-full h-full bg-orange-300">
+        <div className="absolute flex top-0 left-0 w-full h-full ">
             
             {/* Mainstream SideNavbar Starts */}
             <div className={`mainstream-side-nav ${isCollapsed ? 'collapsed' : ''}`}>
@@ -50,7 +57,7 @@ export default function MainStreamView() {
             {/* Mainstream SideNavbar Ends */}
 
         {/* Mainstream Main ParentElement Starts */}
-            <div className='bg-purple-500 flex flex-col w-full h-full'>
+            <div className=' flex flex-col w-full h-full'>
                 
                 {/* Mainstream topnavbar Starts */}
                 <div className='mainstream-topnavbar flex justify-between items-center w-full p-10'>
@@ -72,9 +79,27 @@ export default function MainStreamView() {
 
                 
                 {/* Mainstream main body Starts */}
-                <div className='mainstream-mainbody w-full h-full'>
-
-
+                <div className='mainstream-mainbody flex flex-col justify-between w-full h-full px-10 py-5'>
+                    <div className='popular-parent-holder p-3 bg-orange-200 flex flex-col w-full h-full gap-5'>
+                        <div className='popular-header w-full flex justify-between items-center'>
+                            <span>Popular Games</span>
+                            <p className='flex gap-1 items-center'>sell All<img src='mainstream/arrow.png' /></p>
+                        </div>
+                        <div 
+                            className={`popular-card transition-all duration-300 flex gap-6 p-4 overflow-x-auto`}
+                            style={{ maxWidth: isCollapsed ? '1671px' : '1509px' }}
+                            ref={scrollRef}
+                            onWheel={handleHorizontalScroll}
+                            >
+                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                        </div>
+                    </div>
+                    <div className='p-3 bg-purple-200 w-full h-full'></div>
                 </div>
                 {/* Mainstream main body Ends */}
             
