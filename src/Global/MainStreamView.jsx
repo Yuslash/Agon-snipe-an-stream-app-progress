@@ -11,8 +11,14 @@ export default function MainStreamView() {
     const [isCollapsed, setIsCollapsed ] = useState(false)
     const scrollRef = useRef(null)
     const animateCard = useRef(null)
+    const [username, setUsername ] = useState('')
 
     useEffect(() => {
+        const user = localStorage.getItem('username')
+        if(user){
+            setUsername(user)
+        }
+
         PopularCardAnimation(animateCard.current)
     }, [])
 
@@ -79,7 +85,7 @@ export default function MainStreamView() {
                     </div>
                     <Link to={'/profile'} className='mainstream-profile flex items-center px-10 gap-5 '>
                         <img src='mainstream/profile.png' />
-                        <span className='text-nowrap w-full h-full rounded-full'>Your Username</span>
+                        <span className='text-nowrap w-full h-full rounded-full'>{username}</span>
                     </Link>
                 </div>
                 {/* Mainstream topnavbar Ends */}

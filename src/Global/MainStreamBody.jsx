@@ -9,19 +9,47 @@ export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCol
                     <span>Popular Games</span>
                     <p className='flex gap-1 items-center'>See All<img src='mainstream/arrow.png' /></p>
                 </div>
-                <div
-                    className={`popular-card transition-all p-3 duration-300 flex gap-6 overflow-x-auto`}
-                    style={{ maxWidth: isCollapsed ? '1671px' : '1509px' }}
-                    ref={scrollRef}
-                    onWheel={handleHorizontalScroll}
-                >
-                    <div ref={animateCard} className='card-of-fate  min-w-[274px] h-[465px]'>
-                        <img src='mainstream/popular.png' />
-                        <div className='popular-card-text-holder w-full px-4 h-[70px]  flex items-center'>
-                            <span>Valorant</span>
+                
+                {/* Popular Cards Starts  */}
+                <div className="relative transition-all duration-300">
+                    <div
+                        className={`popular-card transition-all p-3 duration-300 flex gap-6 overflow-x-auto `}
+                        style={{ maxWidth: isCollapsed ? '1671px' : '1509px' }}
+                        ref={scrollRef}
+                        onWheel={handleHorizontalScroll}
+                    >
+                    {/* card Start */}
+                        <div
+                            ref={animateCard}
+                            className="card-of-fate cursor-pointer min-w-[274px] h-[465px] group"
+                        >
+                            {/* Image Container */}
+                            <div className="relative w-full h-[392px]">
+                                <img
+                                    className="w-full h-full object-cover"
+                                    src="mainstream/popular.png"
+                                    alt="Popular Game"
+                                />
+                                {/* Fast Forward Icon */}
+                                <img
+                                    className="absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                                    src="/mainstream/popfastfarward.png"
+                                    alt="Fast Forward Icon"
+                                />
+                            </div>
+
+                            {/* Text Holder */}
+                            <div className="popular-card-text-holder w-full px-4 h-[66px] flex items-center">
+                                <span>Valorant</span>
+                            </div>
                         </div>
+
+                    {/* card ends */}
                     </div>
                 </div>
+                
+                {/* Popular Cards Ends  */}
+            
             </div>
             <div className='p-3 w-full h-full'></div>
         </div>
