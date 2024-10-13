@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './MainStream.css'
 import { Link } from 'react-router-dom'
+import PopularCardAnimation from './PopularCardAnimations'
 
 
 export default function MainStreamView() {
@@ -8,6 +9,11 @@ export default function MainStreamView() {
     const [activeItems, setActiveItems ] = useState('Home')
     const [isCollapsed, setIsCollapsed ] = useState(false)
     const scrollRef = useRef(null)
+    const animateCard = useRef(null)
+
+    useEffect(() => {
+        PopularCardAnimation(animateCard.current)
+    })
 
     const handleHorizontalScroll = (e) => {
         if(scrollRef.current) {
@@ -83,7 +89,7 @@ export default function MainStreamView() {
                     <div className='popular-parent-holder p-3 bg-orange-200 flex flex-col w-full h-full gap-5'>
                         <div className='popular-header w-full flex justify-between items-center'>
                             <span>Popular Games</span>
-                            <p className='flex gap-1 items-center'>sell All<img src='mainstream/arrow.png' /></p>
+                            <p className='flex gap-1 items-center'>See All<img src='mainstream/arrow.png' /></p>
                         </div>
                         <div 
                             className={`popular-card transition-all duration-300 flex gap-6 p-4 overflow-x-auto`}
@@ -91,12 +97,12 @@ export default function MainStreamView() {
                             ref={scrollRef}
                             onWheel={handleHorizontalScroll}
                             >
-                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
-                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
-                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
-                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
-                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
-                            <div className='bg-yellow-400 min-w-[274px] h-5'></div>
+                            <div ref={animateCard} className='bg-yellow-400 min-w-[274px] h-[465px]'>
+                              <img />
+                              <div>
+                                <span></span>
+                              </div>  
+                            </div>
                         </div>
                     </div>
                     <div className='p-3 bg-purple-200 w-full h-full'></div>
