@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import './MainStream.css'
 import { Link } from 'react-router-dom'
 import PopularCardAnimation from './PopularCardAnimations'
+import MainStreamBody from './MainStreamBody'
 
 
 export default function MainStreamView() {
@@ -13,7 +14,7 @@ export default function MainStreamView() {
 
     useEffect(() => {
         PopularCardAnimation(animateCard.current)
-    })
+    }, [])
 
     const handleHorizontalScroll = (e) => {
         if(scrollRef.current) {
@@ -85,28 +86,11 @@ export default function MainStreamView() {
 
                 
                 {/* Mainstream main body Starts */}
-                <div className='mainstream-mainbody flex flex-col justify-between w-full h-full px-10 py-5'>
-                    <div className='popular-parent-holder p-3 bg-orange-200 flex flex-col w-full h-full gap-5'>
-                        <div className='popular-header w-full flex justify-between items-center'>
-                            <span>Popular Games</span>
-                            <p className='flex gap-1 items-center'>See All<img src='mainstream/arrow.png' /></p>
-                        </div>
-                        <div 
-                            className={`popular-card transition-all duration-300 flex gap-6 p-4 overflow-x-auto`}
-                            style={{ maxWidth: isCollapsed ? '1671px' : '1509px' }}
-                            ref={scrollRef}
-                            onWheel={handleHorizontalScroll}
-                            >
-                            <div ref={animateCard} className='bg-yellow-400 min-w-[274px] h-[465px]'>
-                              <img />
-                              <div>
-                                <span></span>
-                              </div>  
-                            </div>
-                        </div>
-                    </div>
-                    <div className='p-3 bg-purple-200 w-full h-full'></div>
-                </div>
+                    <MainStreamBody 
+                    scrollRef={scrollRef} 
+                    handleHorizontalScroll={handleHorizontalScroll} 
+                    isCollapsed={isCollapsed} 
+                    animateCard={animateCard} />
                 {/* Mainstream main body Ends */}
             
             </div>

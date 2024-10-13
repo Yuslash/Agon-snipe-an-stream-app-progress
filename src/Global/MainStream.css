@@ -140,9 +140,31 @@ img {
     overflow-x: auto;
     scrollbar-width: none;
     scroll-behavior: smooth;
-    
 }
 
 .popular-card::-webkit-scrollbar {
     display: none;
+}
+
+.card-of-fate {
+    border-radius: 20px;
+}
+
+.popular-card img 
+{
+    border-radius: 20px 20px 0px 0px;
+}
+
+.popular-card span {
+    color: #979797;
+    font-family: Poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.popular-card-text-holder {
+    border-radius: 0px 0px 20px 20px;
+    background: #161623;
 }
