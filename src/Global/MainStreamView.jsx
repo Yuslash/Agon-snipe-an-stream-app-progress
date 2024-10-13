@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './MainStream.css'
 import { Link } from 'react-router-dom'
-import PopularCardAnimation from './PopularCardAnimations'
 import MainStreamBody from './MainStreamBody'
 
 

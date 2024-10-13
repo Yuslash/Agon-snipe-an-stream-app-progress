@@ -198,6 +198,11 @@ img {
     background: #161623;
 }
 
+.newStreamer-card:hover {
+    border: 3px solid #724DFF;
+    box-shadow: 0px 4px 120px 10px rgba(114, 77, 255, 0.42);
+}
+
 .newStreamer-main-image {
     border-radius: 15px;
 }
@@ -218,4 +223,13 @@ img {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+
+.newStreamer-card:hover .fastforward-icon {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.newStreamer-card:hover img {
+    filter: brightness(0.7);
 }
