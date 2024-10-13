@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import './MainStream.css'
 import PopularCardAnimation from './PopularCardAnimations'
+import MainStreamVideoCard from './MainStreamVideoCard'
 
 export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCollapsed}) {
 
@@ -73,11 +74,11 @@ export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCol
                             >
                                 {/* Image Container */}
                                 <div className="relative w-full h-[392px]">
-                                    <img
-                                        className="w-full h-full object-cover"
-                                        src={card.src}
-                                        alt="Popular Game"
-                                    />
+                                        <img
+                                            className="popular-card-image w-full h-full object-cover"
+                                            src={card.src}
+                                            alt="Popular Game"
+                                        />
                                     {/* Fast Forward Icon */}
                                     <img
                                         className="absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -99,7 +100,9 @@ export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCol
                 {/* Popular Cards Ends  */}
             
             </div>
-            <div className='p-3 w-full h-full'></div>
+            {/* main VideoCard Page Starts */}
+                <MainStreamVideoCard />
+            {/* main VideoCard Page Ends */}
         </div>
     </>
 }
