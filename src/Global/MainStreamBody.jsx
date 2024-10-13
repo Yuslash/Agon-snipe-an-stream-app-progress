@@ -1,6 +1,18 @@
+import { useEffect, useRef } from 'react'
 import './MainStream.css'
+import PopularCardAnimation from './PopularCardAnimations'
 
-export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCollapsed, animateCard}) {
+export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCollapsed}) {
+
+    const animateCard = useRef([])
+
+    useEffect(() => {
+
+        animateCard.current.forEach(box => {
+            if(box) PopularCardAnimation(box)
+        })
+
+    }, [])
 
     const options = [
         {
@@ -53,10 +65,10 @@ export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCol
                         onWheel={handleHorizontalScroll}
                     >
                     {/* card Start */}
-                        {options.map(card => (
+                        {options.map((card ,index) => (
                             <div
                                 key={card.id}
-                                ref={animateCard}
+                                ref={(el) => (animateCard.current[index] = el)}
                                 className="card-of-fate cursor-pointer min-w-[274px] h-[465px] group"
                             >
                                 {/* Image Container */}

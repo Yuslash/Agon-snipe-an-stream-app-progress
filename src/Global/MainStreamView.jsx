@@ -10,7 +10,7 @@ export default function MainStreamView() {
     const [activeItems, setActiveItems ] = useState('Home')
     const [isCollapsed, setIsCollapsed ] = useState(false)
     const scrollRef = useRef(null)
-    const animateCard = useRef(null)
+    
     const [username, setUsername ] = useState('')
 
     useEffect(() => {
@@ -19,7 +19,6 @@ export default function MainStreamView() {
             setUsername(user)
         }
 
-        PopularCardAnimation(animateCard.current)
     }, [])
 
     const handleHorizontalScroll = (e) => {
@@ -96,7 +95,7 @@ export default function MainStreamView() {
                     scrollRef={scrollRef} 
                     handleHorizontalScroll={handleHorizontalScroll} 
                     isCollapsed={isCollapsed} 
-                    animateCard={animateCard} />
+                    />
                 {/* Mainstream main body Ends */}
             
             </div>
