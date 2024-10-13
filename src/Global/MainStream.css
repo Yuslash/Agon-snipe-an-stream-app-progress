@@ -173,3 +173,19 @@ img {
     border-radius: 0px 0px 20px 20px;
     background: #161623;
 }
+
+.main-video-card-top button {
+    color: #666373;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+
+.main-video-card-top {
+    border-bottom: 1px solid #302F2F;
+}
