@@ -145,6 +145,9 @@ img {
 .popular-card::-webkit-scrollbar {
     display: none;
 }
+.mainstream-mainbody::-webkit-scrollbar {
+    display: none;
+}
 
 .card-of-fate {
     border-radius: 20px;
@@ -188,4 +191,31 @@ img {
 
 .main-video-card-top {
     border-bottom: 1px solid #302F2F;
+}
+
+.newStreamer-card {
+    border-radius: 15px;
+    background: #161623;
+}
+
+.newStreamer-main-image {
+    border-radius: 15px;
+}
+
+.mainstream-video-card-title span {
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.mainstream-video-card-title p {
+    color: #606062;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }

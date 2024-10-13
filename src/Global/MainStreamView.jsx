@@ -82,9 +82,8 @@ export default function MainStreamView() {
                             <img src='/mainstream/Bell.png' />
                         </div>
                     </div>
-                    <Link to={'/profile'} className='mainstream-profile flex items-center px-10 gap-5 '>
+                    <Link to={'/profile'} className='mainstream-profile flex items-center px-5 gap-5 '>
                         <img src='mainstream/profile.png' />
-                        <span className='text-nowrap w-full h-full rounded-full'>{username}</span>
                     </Link>
                 </div>
                 {/* Mainstream topnavbar Ends */}

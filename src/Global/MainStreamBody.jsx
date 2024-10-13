@@ -50,7 +50,7 @@ export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCol
 
 
     return <>
-        <div className='mainstream-mainbody flex flex-col justify-between w-full h-full px-10 py-5'>
+        <div className='mainstream-mainbody overflow-auto flex flex-col justify-between w-full h-full px-10 py-5'>
             <div className='popular-parent-holder flex flex-col w-full h-full gap-5'>
                 <div className='popular-header w-full px-3 flex justify-between items-center'>
                     <span>Popular Games</span>
@@ -101,7 +101,7 @@ export default function MainStreamBody({scrollRef, handleHorizontalScroll, isCol
             
             </div>
             {/* main VideoCard Page Starts */}
-                <MainStreamVideoCard />
+            `<MainStreamVideoCard isCollapsed={isCollapsed} />
             {/* main VideoCard Page Ends */}
         </div>
     </>
