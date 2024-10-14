@@ -17,6 +17,8 @@ import StreamView from "./Views/StreamView.jsx"
 import MainStreamView from "./Global/MainStreamView.jsx"
 import MainStream from "./Views/MainStream.jsx"
 import SearchTab from "./Global/SearchTab.jsx"
+import HuntLoginPage from "./Auth/HuntLogin.jsx"
+import AstroLoginPage from "./Auth/AstroLoginPage.jsx"
 
 
 export default function App()
@@ -49,6 +51,12 @@ export default function App()
           <Route path="/main" element={<MainStreamView />} />
           <Route path="/mainview/:id" element={<MainStream />} />
           <Route path="/search" element={<SearchTab />} />
+
+        {/* Login Pages Starts */}
+          <Route path="/hunt" element={<HuntLoginPage />} />
+          <Route path="/astro" element={<AstroLoginPage />} />
+        {/* Login Pages Ends */}
+
         </Routes>
       </BrowserRouter>      
   </>

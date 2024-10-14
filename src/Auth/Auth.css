@@ -213,6 +213,7 @@ body {
 }
 
 .top-navbar {
-    background: #39396F;
+    background: #0a0a1a56;
+    backdrop-filter: blur(40px);
 
 }

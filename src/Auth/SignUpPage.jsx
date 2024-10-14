@@ -151,7 +151,7 @@ export default function SignUpPage() {
     }
 
 
-    return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/5.png')" }}>
+    return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/background/5.png')" }}>
         <ToastContainer theme='colored' position='top-center' />
         <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
             <div className='flex items-center gap-4'>

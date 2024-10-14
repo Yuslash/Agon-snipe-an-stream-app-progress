@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import './Auth.css'
+import './hunt.css'
 import { useEffect, useRef, useState } from 'react'
 import { toast, ToastContainer, Bounce } from 'react-toastify'
 
-export default function LoginPage()
-{
+export default function HuntLoginPage() {
     const navigate = useNavigate()
     const wooshRef = useRef(null)
     const imageRef = useRef()
@@ -44,19 +44,17 @@ export default function LoginPage()
         wooshRef.current.play()
     }
 
-    const home = () =>
-    {
+    const home = () => {
         navigate('/init')
     }
 
-    const moveToReg = () =>
-    {
+    const moveToReg = () => {
         navigate('/signup')
     }
 
     const checkUserData = async () => {
 
-        if(!username || !password) {
+        if (!username || !password) {
             toast.warn(' All Fields Are Required', {
                 position: "top-center",
                 autoClose: 5000,
@@ -81,7 +79,7 @@ export default function LoginPage()
 
         const data = await response.json()
 
-        if(response.status === 200) {
+        if (response.status === 200) {
             toast.success('Login Successfully..', {
                 position: "top-center",
                 autoClose: 2000,
@@ -142,49 +140,57 @@ export default function LoginPage()
         }
     }
 
-    return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center" style={{ backgroundImage: "url('/authentication/background/5.png')" }}>
-                <ToastContainer />
-            <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
-                    <div className='flex items-center gap-4'>
-                    <img src='/authentication/logo.svg' />
-                    <span className='agon-head'>AGON SNIPE</span>
-                    </div>
-
-                    <button onClick={() => {home(), wooshSound()}} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>           
+    return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center">
+        <video
+            ref={imageRef}
+            autoPlay
+            loop
+            muted
+            className="ivanthanda object-cover w-full h-full absolute top-0 left-0 -z-10 pointer-events-none"
+            src="/authentication/background/ivanthandamassuh.webm"
+        ></video>
+        <ToastContainer />
+        <div className='top-navbar py-3 px-8 flex justify-between absolute top-0 left-0 w-full'>
+            <div className='flex items-center gap-4'>
+                <img src='/authentication/logo.svg' />
+                <span className='agon-head'>AGON SNIPE</span>
             </div>
+
+            <button onClick={() => { home(), wooshSound() }} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>
+        </div>
         <div className="hunt-login-panel mt-[120px] px-9 relative flex flex-col justify-center items-center w-[430px]">
             <img className='relative top-[-50px]' src='/authentication/profile.png' />
             <span className='superwelcome-text'>WELCOME BACK</span>
             <div className='main-buttons-hold flex w-full p-1 mt-7 tracking-wider rounded-2xl justify-center'>
                 <button onClick={moveToReg} className='regiser-button w-full rounded-2xl'>REGISTER</button>
-                <button  className='login-button w-full rounded-2xl'>LOGIN</button>
+                <button className='login-button w-full rounded-2xl'>LOGIN</button>
             </div>
             <div className=' w-full flex gap-1 flex-col mt-4'>
                 <span className='above-text'>Username</span>
-                <input 
-                className='text-input p-4'
-                placeholder='Enter Your Username'
-                type='text'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}                    
+                <input
+                    className='text-input p-4'
+                    placeholder='Enter Your Username'
+                    type='text'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                 />
             </div>
 
             <div className=' w-full flex gap-1 flex-col mt-4'>
                 <span className='above-text'>Password</span>
-                <input 
-                className='text-input p-4'
-                placeholder='Enter Your Password'
-                type='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}                    
+                <input
+                    className='text-input p-4'
+                    placeholder='Enter Your Password'
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
 
             <div className='flex flex-col gap-5 w-full justify-center mt-[60px]'>
                 <button onClick={checkUserData} className='to-account w-full py-4'><span>LOGIN TO ACCOUNT</span></button>
-            <img className='' src='/authentication/orline.png'></img>
-            <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>LOGIN WITH DISCORD</span></button>
+                <img className='' src='/authentication/orline.png'></img>
+                <button className='discord-button mb-[30px] py-[15px] flex justify-center items-center gap-[10px]'><img src='/authentication/discord.png'></img><span>LOGIN WITH DISCORD</span></button>
             </div>
         </div>
     </div>
