@@ -21,7 +21,14 @@ export default function Exprerience()
 
     useEffect(() =>
     {   
-    
+        const shouldReload = localStorage.getItem('reloadOnce')
+
+        if(shouldReload) {
+            localStorage.removeItem('reloadOnce')
+
+            window.location.reload()
+        }
+        
         const handleMouseMove = (e) =>
         {
             const x = (e.clientX / window.innerWidth) * 20
@@ -54,6 +61,7 @@ export default function Exprerience()
         cameraShutter.current.preload = 'auto'
 
         audio.current.loop = true
+        audio.current.pause()
 
         
     }, [])

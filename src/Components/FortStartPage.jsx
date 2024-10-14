@@ -18,7 +18,7 @@ export default function FortStartPage({ playAudio, videoRef, stopAudio }) {
 
         setTimeout(() => {
             setIsLoading(false)
-            navigate('/login')
+            navigate('/astro')
         }, fakeLoadingTime)
     }
 

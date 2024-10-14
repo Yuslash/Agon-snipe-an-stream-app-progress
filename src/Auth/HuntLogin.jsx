@@ -7,7 +7,7 @@ import { toast, ToastContainer, Bounce } from 'react-toastify'
 export default function HuntLoginPage() {
     const navigate = useNavigate()
     const wooshRef = useRef(null)
-    const imageRef = useRef()
+    const videoRef = useRef()
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -22,11 +22,12 @@ export default function HuntLoginPage() {
     useEffect(() => {
 
         const handleMouseMove = (e) => {
-            const x = (e.clientX / window.innerWidth) * 5
-            const y = (e.clientY / window.innerHeight) * 5
 
-            if (imageRef.current) {
-                imageRef.current.style.transform = `translate(${x}px, ${y}px)`
+            const x = (e.clientX / window.innerWidth) * 20
+            const y = (e.clientY / window.innerHeight) * 20
+
+            if (videoRef.current) {
+                videoRef.current.style.transform = `translate(${x}px, ${y}px)`
             }
 
         }
@@ -45,6 +46,8 @@ export default function HuntLoginPage() {
     }
 
     const home = () => {
+        
+        localStorage.setItem('reloadOnce', 'true')
         navigate('/init')
     }
 
@@ -140,9 +143,9 @@ export default function HuntLoginPage() {
         }
     }
 
-    return <div ref={imageRef} className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center">
+    return <div className="login-image w-full h-full absolute top-0 left-0 bg-center bg-no-repeat bg-cover flex flex-col justify-center items-center">
         <video
-            ref={imageRef}
+            ref={videoRef}
             autoPlay
             loop
             muted

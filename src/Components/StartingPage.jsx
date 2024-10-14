@@ -12,7 +12,7 @@ export default function StartingPage({ playAudio, videoRef, stopAudio })
 
     useEffect(() => {
 
-        timeAudio.current = new Audio('/HoverSounds/time.mp3')
+        timeAudio.current = new Audio('/HoverSounds/freefire.mp3')
 
         timeAudio.current.preload = 'auto'
 
@@ -29,7 +29,7 @@ export default function StartingPage({ playAudio, videoRef, stopAudio })
 
         setTimeout(() => {
             setIsLoading(false)
-            navigate('/login')
+            navigate('/hunt')
             timeAudio.current.play()
         }, fakeLoadingTime)
     }

@@ -45,6 +45,7 @@ export default function SpaceLoginPage() {
     }
 
     const home = () => {
+        localStorage.setItem('reloadOnce', 'true')
         navigate('/init')
     }
 

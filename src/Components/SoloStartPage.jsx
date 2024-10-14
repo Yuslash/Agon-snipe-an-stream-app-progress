@@ -28,7 +28,7 @@ export default function SoloStartPage({ playAudio, videoRef, stopAudio }) {
 
         setTimeout(() => {
             setIsLoading(false)
-            navigate('/login')
+            navigate('/space')
             timeAudio.current.play()
         }, fakeLoadingTime)
     }

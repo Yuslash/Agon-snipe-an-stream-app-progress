@@ -46,6 +46,7 @@ export default function LoginPage()
 
     const home = () =>
     {
+        localStorage.setItem('reloadOnce', 'true')
         navigate('/init')
     }
 

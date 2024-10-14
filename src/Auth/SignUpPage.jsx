@@ -51,6 +51,7 @@ export default function SignUpPage() {
     }
 
     const home = () => {
+        localStorage.setItem('reloadOnce', 'true')
         navigate('/init')
     }
 

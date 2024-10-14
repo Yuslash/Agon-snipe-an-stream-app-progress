@@ -71,6 +71,7 @@ export default function ProfilePage() {
     }, [])
 
     const toBack = () => {
+        localStorage.setItem('reloadOnce', 'true')
         navigate('/init')
     }
 

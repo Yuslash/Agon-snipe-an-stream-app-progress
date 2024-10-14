@@ -45,6 +45,7 @@ export default function MassLoginPage() {
     }
 
     const home = () => {
+        localStorage.setItem('reloadOnce', 'true')
         navigate('/init')
     }
 
