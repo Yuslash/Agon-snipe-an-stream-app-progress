@@ -1,0 +1,91 @@
+.astro-login-panel {
+    border-radius: 40px;
+    border: 1px solid #181749;
+    background: rgba(166, 163, 245, 0.35);
+    box-shadow: 0px 0px 16.8px 0px rgba(106, 83, 174, 0.25);
+    backdrop-filter: blur(105px);
+    letter-spacing: 0.025rem;
+}
+
+
+
+.astro-text-input {
+    border-radius: 12px;
+    background: #611EC5;
+    box-shadow: -2px 2px 9.5px -2px rgba(0, 0, 0, 0.44) inset;
+    color: #c5bbff;
+    font-family: 'poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.astro-text-input::placeholder {
+    letter-spacing: 0.045rem;
+    color: #DCC3F7;
+}
+
+.astro-above-text {
+    align-self: stretch;
+    color: #481b66;
+    font-family: 'poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.astro-main-buttons-hold {
+    background: #611EC5;
+    box-shadow: -2px 2px 9.5px -2px rgba(0, 0, 0, 0.44) inset;
+}
+
+.astro-login-button {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 2px solid #DC9FFF;
+    background: #A755FF;
+    padding: 12px 0px;
+}
+
+.astro-to-account {
+    border-radius: 10px;
+    border: 2px solid #6E6AB9;
+    background: rgba(58, 56, 105, 0.64);border-radius: 10px;
+        border: 1px solid #B774FF;
+        background: radial-gradient(55.42% 55.42% at 48.34% 0%, rgba(175, 84, 255, 0.64) 0%, rgba(129, 39, 255, 0.64) 100%);
+}
+
+.astro-to-account:hover {
+    background: rgb(139, 88, 235);
+}
+
+.astro-to-account span {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.055rem;
+}
+
+.astro-regiser-button {
+    color: #DD94FF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.astro-top-navbar {
+    background: #0a0a1a2f;
+    backdrop-filter: blur(20px);
+
+}
