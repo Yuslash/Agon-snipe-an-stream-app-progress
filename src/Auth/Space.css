@@ -1,0 +1,126 @@
+.space-login-panel {
+    border-radius: 40px;
+    border: 1px solid #181749;
+    background: rgba(38, 37, 59, 0.35);
+    box-shadow: 0px 0px 16.8px 0px rgba(106, 83, 174, 0.25);
+    backdrop-filter: blur(105px);
+    letter-spacing: 0.025rem;
+}
+
+
+
+.space-text-input {
+    border-radius: 12px;
+    background: #1C1B45;
+    box-shadow: -2px 2px 9.5px -2px rgba(0, 0, 0, 0.44) inset;
+    color: #c5bbff;
+    font-family: 'poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.space-text-input::placeholder {
+    letter-spacing: 0.045rem;
+    color: #656597;
+    font-family: Oxanium;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.space-above-text {
+    align-self: stretch;
+    color: #676799;
+    font-family: Oxanium;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.space-main-buttons-hold {
+    background: #1C1B45;
+    box-shadow: -2px 2px 9.5px -2px rgba(0, 0, 0, 0.44) inset;
+}
+
+.space-regiser-button {
+    color: #6D6DA3;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.space-login-button {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 2px solid #6A6AA5;
+    background: #393768;
+    padding: 12px 0px;
+}
+
+.space-to-account {
+    border-radius: 10px;
+    border: 2px solid #6E6AB9;
+    background: rgba(58, 56, 105, 0.64);
+    border-radius: 10px;
+    border: 2px solid #6E6AB9;
+    background: rgba(58, 56, 105, 0.64);
+}
+
+.space-to-account:hover {
+    background: rgb(157, 88, 235);
+}
+
+.space-to-account span {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.055rem;
+}
+
+
+.space-top-navbar {
+    background: #0a0a1a2f;
+    backdrop-filter: blur(20px);
+
+}
+
+.space-discord-button {
+    border-radius: 10px;
+    border: 1px solid #786CFF;
+    background: radial-gradient(85.17% 85.29% at 50.15% 14.77%, #7E73FD 0%, #5D50FF 100%);
+}
+
+.space-discord-button span {
+    color: #FFF;
+    font-family: Oxanium;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.space-agon-head {
+    text-align: center;
+    font-family: Fortnite;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: radial-gradient(80.88% 82.48% at 50% 50%, #52A9FE 0%, #626BF6 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
