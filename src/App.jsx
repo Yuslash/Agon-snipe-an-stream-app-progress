@@ -19,6 +19,7 @@ import MainStream from "./Views/MainStream.jsx"
 import SearchTab from "./Global/SearchTab.jsx"
 import HuntLoginPage from "./Auth/HuntLogin.jsx"
 import AstroLoginPage from "./Auth/AstroLoginPage.jsx"
+import MassLoginPage from "./Auth/MassLoginPage.jsx"
 
 
 export default function App()
@@ -55,6 +56,7 @@ export default function App()
         {/* Login Pages Starts */}
           <Route path="/hunt" element={<HuntLoginPage />} />
           <Route path="/astro" element={<AstroLoginPage />} />
+          <Route path="/mass" element={<MassLoginPage />} /> 
         {/* Login Pages Ends */}
 
         </Routes>
