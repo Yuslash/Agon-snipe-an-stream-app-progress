@@ -230,6 +230,6 @@ img {
     transition: opacity 0.3s ease-in-out;
 }
 
-.newStreamer-main-image {
+.newStreamer-main-image:hover {
     filter: brightness(0.7);
 }

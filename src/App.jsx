@@ -15,6 +15,7 @@ import Site from "./Uploads/Site.jsx"
 import ProfilePage from "./Terraform/ProfilePage.jsx"
 import StreamView from "./Views/StreamView.jsx"
 import MainStreamView from "./Global/MainStreamView.jsx"
+import MainStream from "./Views/MainStream.jsx"
 
 
 export default function App()
@@ -45,6 +46,7 @@ export default function App()
           <Route path="/view/:id" element={<StreamView />} /> 
 
           <Route path="/main" element={<MainStreamView />} />
+          <Route path="/mainview/:id" element={<MainStream />} />
         </Routes>
       </BrowserRouter>      
   </>

@@ -62,10 +62,11 @@ export default function Upload() {
         }
 
         const expectedToken = import.meta.env.VITE_TOKEN
-        const localToken = localStorage.getItem('username')
+        const localToken = localStorage.getItem('authToken')
 
         if  (expectedToken && expectedToken !== localToken)  {
             navigate('/signup')
+            return null
         }
 
     }, [navigate])
