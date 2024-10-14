@@ -19,21 +19,12 @@ export default function MainStreamVideoCard({ isCollapsed }) {
 
 
     const newStream = userData.filter(item => item.category === 'New Streamer')
-
+    const topStream = userData.filter(item => item.category === 'Top Streamer')
+    const hotStream = userData.filter(item => item.category === 'Hot Streamer')
+    const topClip = userData.filter(item => item.category === 'Top Clip')
+    
 
     return <>
-        <div className='p-3 w-full h-full '>
-            <div className='main-video-card-top w-full py-5 flex gap-9'>
-                <button className="hover:text-purple-500 hover:underline">Top Streamer</button>
-                <button className="hover:text-purple-500 hover:underline">Hot Streamer</button>
-                <button className="hover:text-purple-500 hover:underline">New Streamer</button>
-                <button className="hover:text-purple-500 hover:underline">Top Clip</button>
-            </div>
-
-            {/* Streamer Video Playlist Starts */}
-            <NewStreamer isCollapsed={isCollapsed} newstream={newStream} />
-            {/* Streamer Video Playlist Ends */}
-        
-        </div>
+        <NewStreamer topstream={topStream} hotstream={hotStream} topclip={topClip} isCollapsed={isCollapsed} newstream={newStream} />
     </>
 }

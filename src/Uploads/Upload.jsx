@@ -235,10 +235,17 @@ export default function Upload() {
     }
 
 
+    const toBack = () => {
+        navigate('/main')
+    }
+
     return (
         <div className="main-upload z-50 absolute flex justify-center items-center top-0 left-0 w-full h-full text-white px-[160px] py-20">
             <Bubbles />
             <ToastContainer />
+            <div className="absolute top-0 left-0 w-full p-4 ">
+                <button onClick={toBack} className='discord-button flex gap-2 p-3 items-center'><img src='/authentication/home.png' /><span>GO HOME</span></button>
+            </div>
             <div className="upload-panel p-5 w-full h-full flex">
                 <div className="w-full h-full flex flex-col gap-2 py-10 px-16 ">
                     <span className="text-3xl font-semibold">Let's Upload Your Monster Content! {username} ✨</span>

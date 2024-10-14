@@ -37,8 +37,6 @@ export default function ProfilePage() {
     useEffect(() => 
     {
 
-        
-
         const user = localStorage.getItem('username')
         if(user) {
             setUsername(user)
