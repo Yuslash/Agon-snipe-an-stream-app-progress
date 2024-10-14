@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import './MainStream.css'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import MainStreamBody from './MainStreamBody'
 
 
@@ -8,6 +8,7 @@ export default function MainStreamView() {
 
     const [activeItems, setActiveItems ] = useState('Home')
     const [isCollapsed, setIsCollapsed ] = useState(false)
+    const navigate = useNavigate()
     const scrollRef = useRef(null)
     
     const [username, setUsername ] = useState('')
@@ -42,6 +43,10 @@ export default function MainStreamView() {
         setIsCollapsed((prevState) => !prevState)
     }
 
+    const handleSearchBar = () => {
+        navigate('/search')
+    }
+
     return <>
         <div className="absolute flex top-0 left-0 w-full h-full ">
             
@@ -73,7 +78,7 @@ export default function MainStreamView() {
                 {/* Mainstream topnavbar Starts */}
                 <div className='mainstream-topnavbar flex justify-between items-center w-full p-10'>
                     <div className='flex gap-[10px] w-full'>
-                        <div className='mainstream-searchbar flex w-full items-center gap-5'>
+                        <div onClick={handleSearchBar} className='mainstream-searchbar cursor-pointer flex w-full items-center gap-5'>
                             <img src='/mainstream/search.png' />
                             <span>Search Stream X</span>
                         </div>

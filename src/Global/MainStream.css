@@ -233,3 +233,29 @@ img {
 .newStreamer-main-image:hover {
     filter: brightness(0.7);
 }
+
+.main-search-bar {
+    background: #161623;
+    padding: 24px 30px;
+    border-radius: 10px;
+    color: white;
+    font-family: 'poppins';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+
+}
+
+.main-search-bar::placeholder {
+    color: #979797;
+    font-family: 'poppins';
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.main-search-body {
+    background: #111;
+}

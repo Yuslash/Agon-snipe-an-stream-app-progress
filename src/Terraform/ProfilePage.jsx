@@ -169,7 +169,7 @@ export default function ProfilePage() {
                                                 <img className='absolute inset-0 m-auto w-[50px] h-[50px] opacity-0 transition-opacity duration-300' src='/profile/fastforward.png' alt='Fast Forward Icon' />
                                             </div>
                                                 <div className='ti-di flex gap-4'>
-                                                    <img src='/profile/eclipse.png' />
+                                                    <img className='w-[40px] h-[40px]' src='/profile/eclipse.png' />
                                                     <div className='flex flex-col'>
                                                         <span>{user.title}</span>
                                                         <p>{username}</p>

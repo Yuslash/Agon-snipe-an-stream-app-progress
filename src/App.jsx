@@ -16,6 +16,7 @@ import ProfilePage from "./Terraform/ProfilePage.jsx"
 import StreamView from "./Views/StreamView.jsx"
 import MainStreamView from "./Global/MainStreamView.jsx"
 import MainStream from "./Views/MainStream.jsx"
+import SearchTab from "./Global/SearchTab.jsx"
 
 
 export default function App()
@@ -47,6 +48,7 @@ export default function App()
 
           <Route path="/main" element={<MainStreamView />} />
           <Route path="/mainview/:id" element={<MainStream />} />
+          <Route path="/search" element={<SearchTab />} />
         </Routes>
       </BrowserRouter>      
   </>
