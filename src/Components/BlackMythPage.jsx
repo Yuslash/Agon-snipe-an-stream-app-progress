@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import AnimationLoading from "../Animations/AnimationLoading"
 
@@ -7,6 +7,18 @@ export default function BlackMythPage({ playAudio, videoRef, stopAudio }) {
     const navigate = useNavigate()
 
     const [isLoading, setIsLoading] = useState(false)
+
+    const timeAudio = useRef(null)
+
+    useEffect(() => {
+
+        timeAudio.current = new Audio('/HoverSounds/time.mp3')
+
+        timeAudio.current.preload = 'auto'
+
+        timeAudio.current.loop = true
+
+    }, [])
 
     const toLogin = () => {
         stopAudio.pause()
@@ -19,6 +31,7 @@ export default function BlackMythPage({ playAudio, videoRef, stopAudio }) {
         setTimeout(() => {
             setIsLoading(false)
             navigate('/login')
+            timeAudio.current.play()
         }, fakeLoadingTime)
     }
 

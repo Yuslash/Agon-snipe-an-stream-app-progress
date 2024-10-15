@@ -16,6 +16,7 @@ export default function SoloStartPage({ playAudio, videoRef, stopAudio }) {
 
         timeAudio.current.preload = 'auto'
 
+        timeAudio.current.loop = true
     }, [])
 
     const toLogin = () => {

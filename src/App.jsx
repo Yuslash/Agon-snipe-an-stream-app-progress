@@ -21,6 +21,7 @@ import HuntLoginPage from "./Auth/HuntLogin.jsx"
 import AstroLoginPage from "./Auth/AstroLoginPage.jsx"
 import MassLoginPage from "./Auth/MassLoginPage.jsx"
 import SpaceLoginPage from "./Auth/SpaceLogin.jsx"
+import InitialPage from "./InitialPage.jsx"
 
 
 export default function App()
@@ -60,6 +61,9 @@ export default function App()
           <Route path="/mass" element={<MassLoginPage />} />
           <Route path="/space" element={<SpaceLoginPage />} /> 
         {/* Login Pages Ends */}
+
+          <Route path="/" element={<InitialPage />} /> 
+        
 
         </Routes>
       </BrowserRouter>      
