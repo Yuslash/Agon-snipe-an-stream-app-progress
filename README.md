@@ -27,7 +27,7 @@ Let's kick this off with some juicy screenshots because who doesn't like picture
 ## 🔍 Features That Will Make You Go "WOW!"
 
 ### 1. **Upload Your Videos Like a Pro 🎥**  
-> [!IMPORTANT]  
+> [!TIP]  
 > Share your favorite moments with the world. The process is simple, fast, and user-friendly.
 
 ### 2. **Explore Uploaded Content 🌍**  
@@ -35,8 +35,8 @@ Let's kick this off with some juicy screenshots because who doesn't like picture
 > Browse through a gallery of videos uploaded by others. Find inspiration, entertainment, or just have fun exploring.
 
 ### 3. **Responsive Design 🎮**  
-> [!IMPORTANT]  
-> Looks amazing on all devices — from your phone to your widescreen monitor. No compromises!
+> [!CAUTION]  
+> This Front-End Responsive Is Not Good at Small screen Device espically Mobile it looks good on Large Display!
 
 ---
 
