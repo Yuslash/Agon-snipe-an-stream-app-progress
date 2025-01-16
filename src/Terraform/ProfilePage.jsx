@@ -15,6 +15,7 @@ export default function ProfilePage() {
     const bubbleSound1Ref = useRef(null)
     const scaleVideoCard = useRef([])
     const triggerElement = useRef()
+    const useAudio = useRef()
 
     const fetchUserData = async (user) => {
 
@@ -65,14 +66,23 @@ export default function ProfilePage() {
     useEffect(() => {
 
         bubbleSound1Ref.current = new Audio('/HoverSounds/bubble1.mp3')
+        useAudio.current = new Audio('/HoverSounds/time.mp3')
 
         bubbleSound1Ref.current.preload = 'auto'
+        useAudio.current.preload = 'auto'
+
+        useAudio.current.loop = true
 
     }, [])
 
     const toBack = () => {
         localStorage.setItem('reloadOnce', 'true')
-        navigate('/init')
+        navigate('/main')
+    }
+    
+    const toUpload = () => {
+        useAudio.current.play()
+        navigate('/upload')
     }
 
     if(isLoading) {
@@ -91,7 +101,10 @@ export default function ProfilePage() {
             <div className='profile-container absolute top-0 left-0 w-full h-full'>
                 {/* Top nav bar stats */}
                     <div className='profile-top w-full flex justify-between py-5 px-10'>
-                        <button onClick={toBack} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>GO BACK</span></button>
+                        <div className='flex gap-4'>
+                            <button onClick={toBack} className='discord-button flex gap-2 px-5 items-center'><img src='/authentication/home.png' /><span>HOME</span></button>
+                            <button onClick={toUpload} className='discord-button flex gap-2 px-5 items-center'><span>UPLOAD</span></button>
+                        </div>
 
                         <div className='flex gap-3'>
                             <div className='flex flex-col justify-center items-end'>
