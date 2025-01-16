@@ -6,41 +6,23 @@ Welcome to the **Agon Snipe and Stream App**! ✨ This app is like your cool tec
 
 ---
 
-## 🛎️ Screenshots or It Didn't Happen 
+## 🛎️ Screenshots or It Didn't Happen
 
 Let's kick this off with some juicy screenshots because who doesn't like pictures? 📸
 
-![Screenshot 1](./screenshots/screenshot1.png)  
-_"Upload interface looking sleek! ✨"_
-
-![Screenshot 2](./screenshots/screenshot2.png)  
-_"Sharing moments made easy 📹."_
-
-![Screenshot 3](./screenshots/screenshot3.png)  
-_"Video uploaded successfully! 👍"_
-
-![Screenshot 4](./screenshots/screenshot4.png)  
-_"Gallery view to explore videos! 🔝"_
-
-![Screenshot 5](./screenshots/screenshot5.png)  
-_"Responsive design looking sharp! 🎮"_
-
-![Screenshot 6](./screenshots/screenshot6.png)  
-_"Profile section for managing uploads 🙌."_
-
-![Screenshot 7](./screenshots/screenshot7.png)  
-_"Search functionality in action 🔍."_
-
-![Screenshot 8](./screenshots/screenshot8.png)  
-_"Smooth navigation across pages! 🔄"_
-
-![Screenshot 9](./screenshots/screenshot9.png)  
-_"Video playback for uploads! 🎥"_
-
-![Screenshot 10](./screenshots/screenshot10.png)  
-_"Dark mode looking fire! 🔥"_
+| ![Screenshot 1](./screenshots/screenshot1.png) | ![Screenshot 2](./screenshots/screenshot2.png) | ![Screenshot 3](./screenshots/screenshot3.png) |
+| ------------------------------------------------ | ------------------------------------------------ | ------------------------------------------------ |
+| ![Screenshot 4](./screenshots/screenshot4.png) | ![Screenshot 5](./screenshots/screenshot5.png) | ![Screenshot 6](./screenshots/screenshot6.png) |
+| ![Screenshot 7](./screenshots/screenshot7.png) | ![Screenshot 8](./screenshots/screenshot8.png) | ![Screenshot 9](./screenshots/screenshot9.png) |
+| ![Screenshot 10](./screenshots/screenshot10.png) | ![Screenshot 11](./screenshots/screenshot11.png) | ![Screenshot 12](./screenshots/screenshot12.png) |
+| ![Screenshot 13](./screenshots/screenshot13.png) |                                                  |                                                  |
 
 ---
+
+> [!IMPORTANT] 
+> The login and registration pages draw inspiration from the sleek design seen on NeomodeonStudio's Dribbble, 
+> featuring modern UI elements, clean typography, and a minimalistic form design 
+> to ensure a smooth user experience.
 
 ## 🔍 Features That Will Make You Go "WOW!"
 
