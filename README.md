@@ -116,11 +116,6 @@ This project loves contributors as much as gamers love low ping! 🎯
 
 ---
 
-## 🔒 License
-
-This app is open-source. Feel free to tinker, break, fix, and share it (not necessarily in that order). MIT license included because sharing is caring. 📄
-
----
 
 ## 🙌 Big Thanks
 
