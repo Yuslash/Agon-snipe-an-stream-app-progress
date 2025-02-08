@@ -36,7 +36,7 @@ Let's kick this off with some juicy screenshots because who doesn't like picture
 
 ### 3. **Responsive Design 🎮**  
 > [!CAUTION]  
-> This Front-End Responsive Is Not Good at Small screen Device espically Mobile it looks good on Large Display!
+> This Front-End Responsive Is Not Good at Small screen Device espically Mobile. It looks good on Large Display!
 
 ---
 
@@ -68,7 +68,7 @@ So you wanna get started? Follow these steps and you'll be uploading videos in n
    npm run dev
    ```
 > [!IMPORTANT]  
-> Open your browser and head to `http://localhost:3000` ✨.
+> Open your browser and head to `http://localhost:5173` ✨.
 
 5. **And BOOM, you're uploading videos 🎥!**  
 
